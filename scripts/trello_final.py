@@ -136,41 +136,41 @@ def print_summary(burndown_data: Dict[str, Any]):
     print("=" * 70)
     print("RESUMO DO BOARD TRELLO - BURNDOWN CHART")
     print("=" * 70)
-    print(f"📊 ESTATÍSTICAS GERAIS:")
+    print(f"ESTATISTICAS GERAIS:")
     print(f"   Total de Cards: {board_info['total_cards']}")
-    print(f"   Cards Concluídos: {board_info['completed_cards']}")
+    print(f"   Cards Concluidos: {board_info['completed_cards']}")
     print(f"   Cards Pendentes: {board_info['pending_cards']}")
-    print(f"   Taxa de Conclusão: {board_info['completion_percentage']}%")
+    print(f"   Taxa de Conclusao: {board_info['completion_percentage']}%")
     print()
     
-    print(f"🎯 STORY POINTS:")
+    print(f"STORY POINTS:")
     print(f"   Total de Story Points: {board_info['total_story_points']}")
-    print(f"   Story Points Concluídos: {board_info['completed_story_points']}")
+    print(f"   Story Points Concluidos: {board_info['completed_story_points']}")
     print(f"   Story Points Pendentes: {board_info['pending_story_points']}")
-    print(f"   Taxa de Conclusão SP: {board_info['story_points_completion_percentage']}%")
+    print(f"   Taxa de Conclusao SP: {board_info['story_points_completion_percentage']}%")
     print()
     
-    print("📋 CARDS POR LISTA:")
+    print("CARDS POR LISTA:")
     print("-" * 40)
     for list_name, cards in burndown_data['cards_by_list'].items():
         completed = len([c for c in cards if c['closed']])
         pending = len(cards) - completed
-        print(f"   {list_name}: {len(cards)} cards ({completed} concluídos, {pending} pendentes)")
+        print(f"   {list_name}: {len(cards)} cards ({completed} concluidos, {pending} pendentes)")
     print()
     
-    print("🎲 CARDS POR STORY POINTS:")
+    print("CARDS POR STORY POINTS:")
     print("-" * 40)
     for sp, cards in sorted(burndown_data['cards_by_story_points'].items()):
-        if sp > 0:  # Só mostrar cards com story points
+        if sp > 0:  # So mostrar cards com story points
             completed = len([c for c in cards if c['closed']])
             pending = len(cards) - completed
-            print(f"   [{sp} SP]: {len(cards)} cards ({completed} concluídos, {pending} pendentes)")
+            print(f"   [{sp} SP]: {len(cards)} cards ({completed} concluidos, {pending} pendentes)")
 
 def save_burndown_data(burndown_data: Dict[str, Any], output_file: str):
     """Salva os dados formatados em um arquivo JSON"""
     with open(output_file, 'w', encoding='utf-8') as file:
         json.dump(burndown_data, file, indent=2, ensure_ascii=False, default=str)
-    print(f"💾 Dados salvos em: {output_file}")
+    print(f"Dados salvos em: {output_file}")
 
 def main():
     if len(sys.argv) != 2:
@@ -179,19 +179,19 @@ def main():
     
     filename = sys.argv[1]
     
-    print(f"🚀 Processando arquivo: {filename}")
-    print("📥 Carregando dados do Trello...")
+    print(f"Processando arquivo: {filename}")
+    print("Carregando dados do Trello...")
     
     # Carregar dados do Trello
     board_data = load_trello_json(filename)
     
-    print("📋 Extraindo listas...")
+    print("Extraindo listas...")
     lists = extract_lists(board_data)
     
-    print("🎯 Extraindo cards e calculando story points...")
+    print("Extraindo cards e calculando story points...")
     cards = extract_cards(board_data, lists)
     
-    print("📊 Formatando dados para burndown...")
+    print("Formatando dados para burndown...")
     burndown_data = format_for_burndown(cards)
     
     # Imprimir resumo
@@ -201,8 +201,8 @@ def main():
     output_file = "burndown_data_final.json"
     save_burndown_data(burndown_data, output_file)
     
-    print("\n✅ Processamento concluído!")
-    print("🎉 Agora você pode usar os dados no seu burndown chart!")
+    print("\nProcessamento concluido!")
+    print("Agora voce pode usar os dados no seu burndown chart!")
 
 if __name__ == "__main__":
     main()

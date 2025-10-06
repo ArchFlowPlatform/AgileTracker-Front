@@ -1,98 +1,113 @@
 'use client';
 
+import { useEffect } from 'react';
 import { useDashboardStore } from '@/store/dashboard-store';
 import { Sidebar } from '@/components/sidebar';
 import { BurndownChart } from '@/components/burndown-chart';
 import { KanbanBoard } from '@/components/kanban-board';
-import { Analytics } from '@/components/analytics';
 import { Settings } from '@/components/settings';
+import { ScrumManagement } from '@/components/scrum-management';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { 
-  TrendingUp, 
   TrendingDown,
   CheckCircle, 
-  Clock, 
   Users,
-  ArrowRight
+  ArrowRight,
+  BarChart3,
+  Target
 } from 'lucide-react';
-import { useKanbanStore } from '@/store/kanban-store';
+import { useUserKanbanBoardStore } from '@/hooks/useUserKanbanBoardStore';
+import { useUserScrumStore } from '@/hooks/useUserStores';
+import { useUserSettingsStore } from '@/hooks/useUserStores';
 import { cn } from '@/lib/utils';
 
 function HomePage() {
-  const { cards, tasks } = useKanbanStore();
+  const kanbanStore = useUserKanbanBoardStore();
+  const { tasks: boardTasks } = kanbanStore || { tasks: [] };
+  const scrumStore = useUserScrumStore();
+  const { userStories } = scrumStore || { userStories: [] };
+  const settingsStore = useUserSettingsStore();
+  const { teamMembers } = settingsStore || { teamMembers: [] };
   
-  const completedTasks = tasks.filter(task => task.completed).length;
-  const totalTasks = tasks.length;
+  // Calcular métricas baseadas nos dados do board
+  const completedTasks = boardTasks.filter(task => task.isCompleted).length;
+  const totalTasks = boardTasks.length;
   const completionRate = totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) : 0;
+
+  // Calcular story points das User Stories
+  const totalUserStoryPoints = userStories.reduce((sum, story) => sum + (story.storyPoints || 0), 0);
   
-  const completedCards = cards.filter(card => card.status === 'done').length;
-  const totalCards = cards.length;
-  const cardCompletionRate = totalCards > 0 ? Math.round((completedCards / totalCards) * 100) : 0;
+  // Calcular story points das tasks do Kanban
+  const totalTaskStoryPoints = boardTasks.reduce((sum, task) => sum + (task.storyPoints || 0), 0);
+  
+  // Total geral de story points (User Stories + Tasks)
+  const totalStoryPoints = totalUserStoryPoints + totalTaskStoryPoints;
 
   const stats = [
     {
-      title: 'Tarefas Completadas',
-      value: `${completedTasks}/${totalTasks}`,
-      percentage: completionRate,
-      icon: CheckCircle,
-      color: 'text-green-600',
-      bgColor: 'bg-green-50'
+      title: 'Total de Tasks',
+      value: `${boardTasks.length}`,
+      icon: BarChart3,
+      color: 'text-primary',
+      bgColor: 'bg-primary/10'
     },
     {
-      title: 'Cards Completados',
-      value: `${completedCards}/${totalCards}`,
-      percentage: cardCompletionRate,
-      icon: TrendingUp,
-      color: 'text-blue-600',
-      bgColor: 'bg-blue-50'
-    },
-    {
-      title: 'Sprint Atual',
-      value: 'Sprint 1',
-      icon: Clock,
-      color: 'text-purple-600',
-      bgColor: 'bg-purple-50'
-    },
-    {
-      title: 'Duração',
-      value: '14 dias',
+      title: 'Membros da Equipe',
+      value: `${teamMembers.length}`,
       icon: Users,
-      color: 'text-orange-600',
-      bgColor: 'bg-orange-50'
+      color: 'text-success',
+      bgColor: 'bg-success/10'
+    },
+    {
+      title: 'Story Points',
+      value: `${totalStoryPoints}`,
+      icon: Target,
+      color: 'text-warning',
+      bgColor: 'bg-warning/10'
+    },
+    {
+      title: 'Taxa de Conclusão',
+      value: `${completionRate}%`,
+      icon: CheckCircle,
+      color: 'text-primary',
+      bgColor: 'bg-primary/10'
     }
   ];
 
   return (
-    <div className="space-y-6">
-      {/* Header */}
-        <div>
-          <h1 className="text-3xl font-bold text-foreground">Dashboard</h1>
-          <p className="text-muted-foreground mt-2">
-            Visão geral do seu projeto Agile
-          </p>
-        </div>
+    <div className="space-y-8 animate-fade-in">
+      {/* Header simples */}
+      <div className="p-6">
+        <h1 className="text-4xl font-bold text-foreground">
+          Dashboard
+        </h1>
+        <p className="text-muted-foreground mt-3 text-lg">
+          Visão geral do seu projeto Agile
+        </p>
+      </div>
 
-      {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {/* Stats Grid com glassmorphism */}
+      <div className="adaptive-layout">
         {stats.map((stat, index) => {
           const Icon = stat.icon;
           return (
-            <Card key={index}>
+            <Card 
+              key={index} 
+              className="card-modern hover-lift group animate-slide-up"
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-sm font-medium text-muted-foreground">{stat.title}</p>
-                    <p className="text-2xl font-bold text-foreground mt-1">{stat.value}</p>
-                    {stat.percentage !== undefined && (
-                      <Badge variant="secondary" className="mt-2">
-                        {stat.percentage}% completo
-                      </Badge>
-                    )}
+                  <div className="flex-1">
+                    <p className="text-sm font-medium text-muted-foreground mb-2">{stat.title}</p>
+                    <p className="text-2xl md:text-3xl font-bold text-foreground">{stat.value}</p>
                   </div>
-                  <div className={cn("p-3 rounded-full", stat.bgColor)}>
-                    <Icon className={cn("w-6 h-6", stat.color)} />
+                  <div className={cn(
+                    "p-3 md:p-4 rounded-2xl transition-all duration-300 group-hover:scale-110", 
+                    stat.bgColor
+                  )}>
+                    <Icon className={cn("w-6 h-6 md:w-7 md:h-7", stat.color)} />
                   </div>
                 </div>
               </CardContent>
@@ -101,48 +116,52 @@ function HomePage() {
         })}
       </div>
 
-      {/* Quick Actions */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center">
-              <TrendingDown className="w-5 h-5 mr-2" />
+      {/* Quick Actions com glassmorphism */}
+      <div className="responsive-flex">
+        <Card className="card-modern hover-lift group animate-slide-up" style={{ animationDelay: '400ms' }}>
+          <CardHeader className="pb-4">
+            <CardTitle className="flex items-center text-xl">
+              <div className="p-2 rounded-xl bg-gradient-to-r from-primary/10 to-primary/5 mr-3 group-hover:scale-110 transition-transform duration-300">
+                <TrendingDown className="w-6 h-6 text-primary" />
+              </div>
               Burndown Chart
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-muted-foreground mb-4">
-              Acompanhe o progresso do seu sprint com o gráfico de burndown.
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              Acompanhe o progresso do seu sprint com o gráfico de burndown interativo e insights em tempo real.
             </p>
             <Button 
               variant="outline" 
-              className="w-full"
+              className="w-full hover-glow focus-ring gradient-primary text-white border-primary hover:border-primary-hover hover:bg-primary-hover transition-all duration-300"
               onClick={() => useDashboardStore.getState().setCurrentPage('burndown')}
             >
               Ver Burndown
-              <ArrowRight className="w-4 h-4 ml-2" />
+              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
             </Button>
           </CardContent>
         </Card>
 
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center">
-              <Users className="w-5 h-5 mr-2" />
+        <Card className="card-modern hover-lift group animate-slide-up" style={{ animationDelay: '500ms' }}>
+          <CardHeader className="pb-4">
+            <CardTitle className="flex items-center text-xl">
+              <div className="p-2 rounded-xl bg-gradient-to-r from-success/10 to-success/5 mr-3 group-hover:scale-110 transition-transform duration-300">
+                <Users className="w-6 h-6 text-success" />
+              </div>
               Kanban Board
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-muted-foreground mb-4">
-              Gerencie suas tarefas com o board Kanban interativo.
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              Gerencie suas tarefas com o board Kanban interativo, drag-and-drop e colaboração em tempo real.
             </p>
             <Button 
               variant="outline" 
-              className="w-full"
+              className="w-full hover-glow focus-ring gradient-primary text-white border-primary hover:border-primary-hover hover:bg-primary-hover transition-all duration-300"
               onClick={() => useDashboardStore.getState().setCurrentPage('kanban')}
             >
               Abrir Board
-              <ArrowRight className="w-4 h-4 ml-2" />
+              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
             </Button>
           </CardContent>
         </Card>
@@ -152,7 +171,20 @@ function HomePage() {
 }
 
 export function Dashboard() {
-  const { currentPage, sidebarOpen } = useDashboardStore();
+  const { currentPage, sidebarOpen, setCurrentPage } = useDashboardStore();
+
+  // Listener para navegação via eventos customizados
+  useEffect(() => {
+    const handleNavigateToSettings = () => {
+      setCurrentPage('settings');
+    };
+
+    window.addEventListener('navigate-to-settings', handleNavigateToSettings);
+    
+    return () => {
+      window.removeEventListener('navigate-to-settings', handleNavigateToSettings);
+    };
+  }, [setCurrentPage]);
 
   const renderCurrentPage = () => {
     switch (currentPage) {
@@ -162,8 +194,8 @@ export function Dashboard() {
         return <BurndownChart />;
       case 'kanban':
         return <KanbanBoard />;
-      case 'analytics':
-        return <Analytics />;
+      case 'sprint-management':
+        return <ScrumManagement />;
       case 'settings':
         return <Settings />;
       default:
@@ -190,3 +222,4 @@ export function Dashboard() {
     </div>
   );
 }
+

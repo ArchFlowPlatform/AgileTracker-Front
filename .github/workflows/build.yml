@@ -1,0 +1,65 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  # Job para o Backend TypeScript
+  backend:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: backend-ts/package-lock.json
+        
+    - name: Install backend dependencies
+      working-directory: ./backend-ts
+      run: npm ci
+      
+    - name: Generate Prisma client
+      working-directory: ./backend-ts
+      run: npm run db:generate
+      
+    - name: TypeScript type check
+      working-directory: ./backend-ts
+      run: npm run type-check
+      
+    - name: Build backend
+      working-directory: ./backend-ts
+      run: npm run build
+
+  # Job para o Frontend Next.js
+  frontend:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install frontend dependencies
+      run: npm ci
+      
+    - name: ESLint check
+      run: npm run lint
+      
+    - name: TypeScript type check
+      run: npm run type-check
+      
+    - name: Build frontend
+      run: npm run build

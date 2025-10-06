@@ -1,0 +1,1378 @@
+{
+  "board": {
+    "id": "68bf7722220701dcf7f17178",
+    "name": "ExceptionHandlers",
+    "description": "",
+    "createdAt": "2025-09-30T21:23:57.355678",
+    "lastModified": "2025-09-30T21:23:57.355679"
+  },
+  "columns": [
+    {
+      "id": "68bf7ba5e1ae5228b969500f",
+      "name": "TO DO",
+      "color": "#3b82f6",
+      "taskLimit": null,
+      "isCollapsed": false
+    },
+    {
+      "id": "68bf7baad51abdf23d5a41cb",
+      "name": "DOING",
+      "color": "#f59e0b",
+      "taskLimit": null,
+      "isCollapsed": false
+    },
+    {
+      "id": "68bf83a73933c6af9cfb52cf",
+      "name": "REVIEW/FIX",
+      "color": "#ef4444",
+      "taskLimit": null,
+      "isCollapsed": false
+    },
+    {
+      "id": "68cdf4ab605773ab3e1129b3",
+      "name": "WAITING VALIDATION",
+      "color": "#8b5cf6",
+      "taskLimit": null,
+      "isCollapsed": false
+    },
+    {
+      "id": "68bf7bacb67002eff3f79b01",
+      "name": "DONE SP1",
+      "color": "#10b981",
+      "taskLimit": null,
+      "isCollapsed": false
+    },
+    {
+      "id": "68c62052b22c3cdec09bca99",
+      "name": "Dailys",
+      "color": "#6b7280",
+      "taskLimit": null,
+      "isCollapsed": false
+    },
+    {
+      "id": "68c8b77ea3c5e26174c5f61c",
+      "name": "Guide",
+      "color": "#f97316",
+      "taskLimit": null,
+      "isCollapsed": false
+    }
+  ],
+  "tasks": [
+    {
+      "id": "68c9f77f1a9c51f86f45b8c4",
+      "title": "Implementar paginação → ED 002",
+      "description": "_**Aplicação direta de algoritmos de navegação/estruturas de dados**_\n\nUS03 – Consulta de Dados em Tabela [5]\n\n> _Como usuário,_\n>\n> _Quero consultar e visualizar os dados em formato tabular,_\n>\n> _Para facilitar a análise e interpretação estruturada das informações apresentadas_.\n\n**Critérios de aceite:**\n\n- Exibir dados em tabela responsiva\n- Incluir paginação para grandes volumes de registros\n- Permitir ordenação por colunas (crescente e decrescente)\n- Incluir campo de busca para filtragem rápida\n- Mostrar metadados relevantes (instituição, reservatório, data de coleta)",
+      "column": "TO DO",
+      "storyPoints": 0,
+      "taskCode": "ED 002",
+      "labels": [
+        "ED"
+      ],
+      "assignedMembers": [],
+      "dueDate": null,
+      "lastActivity": "2025-09-23T14:27:07.154Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355021"
+    },
+    {
+      "id": "68c9f780312e70b42384b289",
+      "title": "Implementar ordenação por colunas → TP 003",
+      "description": "_**Lógica de programação para ordenação e manipulação dos dados**_\n\nUS03 – Consulta de Dados em Tabela [5]\n\n> _Como usuário,_\n>\n> _Quero consultar e visualizar os dados em formato tabular,_\n>\n> _Para facilitar a análise e interpretação estruturada das informações apresentadas_.\n\n**Critérios de aceite:**\n\n- Exibir dados em tabela responsiva\n- Incluir paginação para grandes volumes de registros\n- Permitir ordenação por colunas (crescente e decrescente)\n- Incluir campo de busca para filtragem rápida\n- Mostrar metadados relevantes (instituição, reservatório, data de coleta)",
+      "column": "TO DO",
+      "storyPoints": 0,
+      "taskCode": "TP 003",
+      "labels": [
+        "TP"
+      ],
+      "assignedMembers": [],
+      "dueDate": null,
+      "lastActivity": "2025-09-23T14:27:09.864Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355296"
+    },
+    {
+      "id": "68c9f783db8f7f2f0e733695",
+      "title": "Exibir metadados → BDR 005",
+      "description": "_**Extração e exibição de informações vindas do banco de dados**_\n\nUS03 – Consulta de Dados em Tabela [5]\n\n> _Como usuário,_\n>\n> _Quero consultar e visualizar os dados em formato tabular,_\n>\n> _Para facilitar a análise e interpretação estruturada das informações apresentadas_.\n\n**Critérios de aceite:**\n\n- Exibir dados em tabela responsiva\n- Incluir paginação para grandes volumes de registros\n- Permitir ordenação por colunas (crescente e decrescente)\n- Incluir campo de busca para filtragem rápida\n- Mostrar metadados relevantes (instituição, reservatório, data de coleta)",
+      "column": "TO DO",
+      "storyPoints": 0,
+      "taskCode": "BDR 005",
+      "labels": [
+        "BDR"
+      ],
+      "assignedMembers": [],
+      "dueDate": null,
+      "lastActivity": "2025-09-23T14:27:12.726Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355330"
+    },
+    {
+      "id": "68c9f786ace5f7911e2a8d74",
+      "title": "Validar consulta de dados com volume crescente → MC 007",
+      "description": "_**Cálculo de impacto no tempo de resposta com datasets grandes**_\n\nUS03 – Consulta de Dados em Tabela [5]\n\n> _Como usuário,_\n>\n> _Quero consultar e visualizar os dados em formato tabular,_\n>\n> _Para facilitar a análise e interpretação estruturada das informações apresentadas_.\n\n**Critérios de aceite:**\n\n- Exibir dados em tabela responsiva\n- Incluir paginação para grandes volumes de registros\n- Permitir ordenação por colunas (crescente e decrescente)\n- Incluir campo de busca para filtragem rápida\n- Mostrar metadados relevantes (instituição, reservatório, data de coleta)",
+      "column": "TO DO",
+      "storyPoints": 0,
+      "taskCode": "MC 007",
+      "labels": [
+        "MC"
+      ],
+      "assignedMembers": [
+        {
+          "name": "João Victor",
+          "initials": "JV",
+          "avatar": "https://trello-members.s3.amazonaws.com/67ca3262fbbe6b752eee6c35/c7bae35ca7ce5b365786020163433e6f"
+        }
+      ],
+      "dueDate": null,
+      "lastActivity": "2025-09-23T14:27:20.580Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355341"
+    },
+    {
+      "id": "68c9f788ebe0fdc046117232",
+      "title": "Validar integração com API /dados → DWII 008",
+      "description": "_**Testes de integração entre frontend e backend, consumo de endpoint**_\n\nUS03 – Consulta de Dados em Tabela [5]\n\n> _Como usuário,_\n>\n> _Quero consultar e visualizar os dados em formato tabular,_\n>\n> _Para facilitar a análise e interpretação estruturada das informações apresentadas_.\n\n**Critérios de aceite:**\n\n- Exibir dados em tabela responsiva\n- Incluir paginação para grandes volumes de registros\n- Permitir ordenação por colunas (crescente e decrescente)\n- Incluir campo de busca para filtragem rápida\n- Mostrar metadados relevantes (instituição, reservatório, data de coleta)",
+      "column": "TO DO",
+      "storyPoints": 0,
+      "taskCode": "DWII 008",
+      "labels": [
+        "DW2"
+      ],
+      "assignedMembers": [],
+      "dueDate": null,
+      "lastActivity": "2025-09-23T14:27:23.898Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355346"
+    },
+    {
+      "id": "68ca00462504a47e16afaa7e",
+      "title": "Implementar lógica de filtros aplicados → ED 010",
+      "description": "_**Utilizar estruturas de dados e algoritmos para aplicar corretamente os filtros ativos na exportação**_\n\nUS04 – Exportação de Dados em CSV [3]\n\n> _Como usuário,_\n>\n> _Quero consultar e exportar os dados no formato CSV,_\n>\n> _Para possibilitar sua utilização em outras ferramentas e atividades correlatas._\n\n**Critérios de aceite:**\n\n- Permitir exportação de todos os registros em CSV\n- Garantir compatibilidade com softwares comuns (Excel, LibreOffice, R, Python)\n- Preservar a estrutura e integridade dos dados no arquivo exportado\n- Incluir cabeçalhos e metadados no arquivo gerado\n- Possibilitar exportação de dados filtrados da tabela",
+      "column": "TO DO",
+      "storyPoints": 0,
+      "taskCode": "ED 010",
+      "labels": [
+        "ED"
+      ],
+      "assignedMembers": [],
+      "dueDate": null,
+      "lastActivity": "2025-09-23T14:27:27.134Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355372"
+    },
+    {
+      "id": "68ca0047775e0c34c9e1b5d2",
+      "title": "Garantir encoding UTF-8 e integridade → TP 011",
+      "description": "_**Programação defensiva para preservar acentuação, caracteres especiais e integridade do arquivo gerado**_\n\nUS04 – Exportação de Dados em CSV [3]\n\n> _Como usuário,_\n>\n> _Quero consultar e exportar os dados no formato CSV,_\n>\n> _Para possibilitar sua utilização em outras ferramentas e atividades correlatas._\n\n**Critérios de aceite:**\n\n- Permitir exportação de todos os registros em CSV\n- Garantir compatibilidade com softwares comuns (Excel, LibreOffice, R, Python)\n- Preservar a estrutura e integridade dos dados no arquivo exportado\n- Incluir cabeçalhos e metadados no arquivo gerado\n- Possibilitar exportação de dados filtrados da tabela",
+      "column": "TO DO",
+      "storyPoints": 0,
+      "taskCode": "TP 011",
+      "labels": [
+        "TP"
+      ],
+      "assignedMembers": [],
+      "dueDate": null,
+      "lastActivity": "2025-09-23T14:27:30.306Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355441"
+    },
+    {
+      "id": "68ca00483da6749f3fc94188",
+      "title": "Validar compatibilidade no Excel/LibreOffice/R/Python → ESII 012",
+      "description": "_**Garantir interoperabilidade do sistema com diferentes softwares e cenários de uso reais**_\n\nUS04 – Exportação de Dados em CSV [3]\n\n> _Como usuário,_\n>\n> _Quero consultar e exportar os dados no formato CSV,_\n>\n> _Para possibilitar sua utilização em outras ferramentas e atividades correlatas._\n\n**Critérios de aceite:**\n\n- Permitir exportação de todos os registros em CSV\n- Garantir compatibilidade com softwares comuns (Excel, LibreOffice, R, Python)\n- Preservar a estrutura e integridade dos dados no arquivo exportado\n- Incluir cabeçalhos e metadados no arquivo gerado\n- Possibilitar exportação de dados filtrados da tabela",
+      "column": "TO DO",
+      "storyPoints": 0,
+      "taskCode": "ESII 012",
+      "labels": [
+        "ES2"
+      ],
+      "assignedMembers": [],
+      "dueDate": null,
+      "lastActivity": "2025-09-23T14:27:33.837Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355446"
+    },
+    {
+      "id": "68ca004a4e062d43ca8ea73e",
+      "title": "Calcular custo de exportação em datasets grandes → MC 013",
+      "description": "_**Analisar tempo de execução e consumo de memória em exportações de grande volume de dados**_\n\nUS04 – Exportação de Dados em CSV [3]\n\n> _Como usuário,_\n>\n> _Quero consultar e exportar os dados no formato CSV,_\n>\n> _Para possibilitar sua utilização em outras ferramentas e atividades correlatas._\n\n**Critérios de aceite:**\n\n- Permitir exportação de todos os registros em CSV\n- Garantir compatibilidade com softwares comuns (Excel, LibreOffice, R, Python)\n- Preservar a estrutura e integridade dos dados no arquivo exportado\n- Incluir cabeçalhos e metadados no arquivo gerado\n- Possibilitar exportação de dados filtrados da tabela",
+      "column": "TO DO",
+      "storyPoints": 0,
+      "taskCode": "MC 013",
+      "labels": [
+        "MC"
+      ],
+      "assignedMembers": [],
+      "dueDate": null,
+      "lastActivity": "2025-09-23T14:27:37.678Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355450"
+    },
+    {
+      "id": "68ca0e7a54ed99191f60bfdd",
+      "title": "Criar scripts SQL de inicialização (schema + seed) → BDR 016",
+      "description": "_**Definir DDL do schema, chaves/índices e inserir dados de exemplo garantindo integridade referencial**_\n\nUS08 - Configuração de Ambiente Containerizado [5]\n\n> _Como desenvolvedor,_\n>\n> _Quero um ambiente containerizado para todas as camadas,_\n>\n> _Para garantir consistência e facilitar o processo de deploy._\n\n**Critérios de aceite:**\n\n- Docker Compose com PostgreSQL, Node.js e React\n- Variáveis de ambiente configuráveis\n- Scripts de inicialização de dados incluídos\n- Documentação de setup",
+      "column": "TO DO",
+      "storyPoints": 0,
+      "taskCode": "BDR 016",
+      "labels": [
+        "BDR"
+      ],
+      "assignedMembers": [],
+      "dueDate": null,
+      "lastActivity": "2025-09-23T14:27:42.780Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355455"
+    },
+    {
+      "id": "68ca0e7e5c5e94a1361b034d",
+      "title": "Validar consumo de recursos e propor otimizações simples → MC 019",
+      "description": "_**Medir CPU/RAM/IO dos containers e sugerir limites/ajustes:**_ `resources`, `restart`, _**tamanhos de pool, índices básicos**_\n\nUS08 - Configuração de Ambiente Containerizado [5]\n\n> _Como desenvolvedor,_\n>\n> _Quero um ambiente containerizado para todas as camadas,_\n>\n> _Para garantir consistência e facilitar o processo de deploy._\n\n**Critérios de aceite:**\n\n- Docker Compose com PostgreSQL, Node.js e React\n- Variáveis de ambiente configuráveis\n- Scripts de inicialização de dados incluídos\n- Documentação de setup",
+      "column": "TO DO",
+      "storyPoints": 0,
+      "taskCode": "MC 019",
+      "labels": [
+        "MC"
+      ],
+      "assignedMembers": [],
+      "dueDate": null,
+      "lastActivity": "2025-09-23T14:27:52.643Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355459"
+    },
+    {
+      "id": "68ca13010f4e7a3e850d510c",
+      "title": "Tratar erros básicos → ESII 023",
+      "description": "_**Error handler central: mapear exceções para HTTP 400/404/500 com mensagens consistentes**_\n\nUS09 - API REST Backend Básica [3]\n\n> _Como desenvolvedor,_\n>\n> _Quero disponibilizar uma API REST inicial em Node.js/TypeScript,_\n>\n> _Para permitir consultas básicas ao banco PostgreSQL de forma padronizada na MVP._\n\n**Critérios de Aceite:**\n\n- Endpoints RESTful básicos documentados (ex.: /dados, /parâmetros)\n- Validação mínima de parâmetros de entrada\n- Tratamento inicial de erros (respostas HTTP claras)\n- Deploy funcional e acessível via container básico",
+      "column": "TO DO",
+      "storyPoints": 0,
+      "taskCode": "ESII 023",
+      "labels": [
+        "ES2"
+      ],
+      "assignedMembers": [],
+      "dueDate": null,
+      "lastActivity": "2025-09-23T14:27:55.452Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355463"
+    },
+    {
+      "id": "68ca13043ba2b366faf40580",
+      "title": "Testar API com dataset → ED 024",
+      "description": "_**Validar respostas com dados reais/sintéticos, casos-limite e consistência de estrutura/paginação**_\n\nUS09 - API REST Backend Básica [3]\n\n> _Como desenvolvedor,_\n>\n> _Quero disponibilizar uma API REST inicial em Node.js/TypeScript,_\n>\n> _Para permitir consultas básicas ao banco PostgreSQL de forma padronizada na MVP._\n\n**Critérios de Aceite:**\n\n- Endpoints RESTful básicos documentados (ex.: /dados, /parâmetros)\n- Validação mínima de parâmetros de entrada\n- Tratamento inicial de erros (respostas HTTP claras)\n- Deploy funcional e acessível via container básico",
+      "column": "TO DO",
+      "storyPoints": 0,
+      "taskCode": "ED 024",
+      "labels": [
+        "ED"
+      ],
+      "assignedMembers": [],
+      "dueDate": null,
+      "lastActivity": "2025-09-23T14:27:58.657Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355470"
+    },
+    {
+      "id": "68ca13053eaffdfe005ee627",
+      "title": "Medir tempo de resposta em cenários simples → MC 025",
+      "description": "_**Coletar latência média/p95 e registrar impacto de paginação/tamanho de página**_\n\nUS09 - API REST Backend Básica [3]\n\n> _Como desenvolvedor,_\n>\n> _Quero disponibilizar uma API REST inicial em Node.js/TypeScript,_\n>\n> _Para permitir consultas básicas ao banco PostgreSQL de forma padronizada na MVP._\n\n**Critérios de Aceite:**\n\n- Endpoints RESTful básicos documentados (ex.: /dados, /parâmetros)\n- Validação mínima de parâmetros de entrada\n- Tratamento inicial de erros (respostas HTTP claras)\n- Deploy funcional e acessível via container básico",
+      "column": "TO DO",
+      "storyPoints": 0,
+      "taskCode": "MC 025",
+      "labels": [
+        "MC"
+      ],
+      "assignedMembers": [],
+      "dueDate": null,
+      "lastActivity": "2025-09-23T14:28:01.358Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355474"
+    },
+    {
+      "id": "68ca0e7bf945b693b50e8d1b",
+      "title": "Testar comunicação entre containers → TP 017",
+      "description": "_**Escrever/verificar scripts de health-check e conexões: API→DB, Front→API; ajustar portas/rede do compose**_\n\nUS08 - Configuração de Ambiente Containerizado [5]\n\n> _Como desenvolvedor,_\n>\n> _Quero um ambiente containerizado para todas as camadas,_\n>\n> _Para garantir consistência e facilitar o processo de deploy._\n\n**Critérios de aceite:**\n\n- Docker Compose com PostgreSQL, Node.js e React\n- Variáveis de ambiente configuráveis\n- Scripts de inicialização de dados incluídos\n- Documentação de setup",
+      "column": "TO DO",
+      "storyPoints": 0,
+      "taskCode": "TP 017",
+      "labels": [
+        "TP"
+      ],
+      "assignedMembers": [],
+      "dueDate": null,
+      "lastActivity": "2025-09-25T12:54:07.020Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355478"
+    },
+    {
+      "id": "68cab3f710be71b319763c12",
+      "title": "Criar páginas principais → TP 028",
+      "description": "_**Implementação das páginas Home e Dados como componentes funcionais**_\n\nUS11 - Interface Responsiva Básica [5]\n\n> _Como usuário,_\n>\n> _Quero acessar a plataforma por meio de uma interface simples e responsiva,_\n>\n> _Para consultar dados em diferentes dispositivos sem dificuldades de navegação._\n\n**Critérios de aceite:**\n\n- Implementação inicial em React/TypeScript\n- Layout responsivo para desktop e mobile\n- Navegação funcional entre páginas principais\n- Performance aceitável em dispositivos comuns",
+      "column": "TO DO",
+      "storyPoints": 0,
+      "taskCode": "TP 028",
+      "labels": [
+        "TP"
+      ],
+      "assignedMembers": [],
+      "dueDate": null,
+      "lastActivity": "2025-09-23T14:28:07.799Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355482"
+    },
+    {
+      "id": "68cab3f878d527e97e6dd4b5",
+      "title": "Configurar navegação → ED 029",
+      "description": "_**Definição de rotas como grafo, incluindo paths e parâmetros**_\n\nUS11 - Interface Responsiva Básica [5]\n\n> _Como usuário,_\n>\n> _Quero acessar a plataforma por meio de uma interface simples e responsiva,_\n>\n> _Para consultar dados em diferentes dispositivos sem dificuldades de navegação._\n\n**Critérios de aceite:**\n\n- Implementação inicial em React/TypeScript\n- Layout responsivo para desktop e mobile\n- Navegação funcional entre páginas principais\n- Performance aceitável em dispositivos comuns",
+      "column": "TO DO",
+      "storyPoints": 0,
+      "taskCode": "ED 029",
+      "labels": [
+        "ED"
+      ],
+      "assignedMembers": [],
+      "dueDate": null,
+      "lastActivity": "2025-09-23T14:28:10.952Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355486"
+    },
+    {
+      "id": "68cab400af55ffe0f42f196a",
+      "title": "Testar uso com diferentes volumes de dados → MC 033",
+      "description": "_**Avaliação de performance de renderização/memória com datasets variados**_\n\nUS11 - Interface Responsiva Básica [5]\n\n> _Como usuário,_\n>\n> _Quero acessar a plataforma por meio de uma interface simples e responsiva,_\n>\n> _Para consultar dados em diferentes dispositivos sem dificuldades de navegação._\n\n**Critérios de aceite:**\n\n- Implementação inicial em React/TypeScript\n- Layout responsivo para desktop e mobile\n- Navegação funcional entre páginas principais\n- Performance aceitável em dispositivos comuns",
+      "column": "TO DO",
+      "storyPoints": 0,
+      "taskCode": "MC 033",
+      "labels": [
+        "MC"
+      ],
+      "assignedMembers": [],
+      "dueDate": null,
+      "lastActivity": "2025-09-23T14:28:23.106Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355490"
+    },
+    {
+      "id": "68cb02a0d63ecfce5b0be626",
+      "title": "Criar consulta SQL para relatórios de metadados → BDR 037",
+      "description": "_**Escrever query para retornar informações já existentes no banco — instituição, reservatório, datas — sem alterar estrutura**_\n\nUS03 – Consulta de Dados em Tabela [5]\n\n> _Como usuário,_\n>\n> _Quero consultar e visualizar os dados em formato tabular,_\n>\n> _Para facilitar a análise e interpretação estruturada das informações apresentadas_.\n\n**Critérios de aceite:**\n\n- Exibir dados em tabela responsiva\n- Incluir paginação para grandes volumes de registros\n- Permitir ordenação por colunas (crescente e decrescente)\n- Incluir campo de busca para filtragem rápida\n- Mostrar metadados relevantes (instituição, reservatório, data de coleta)",
+      "column": "TO DO",
+      "storyPoints": 0,
+      "taskCode": "BDR 037",
+      "labels": [
+        "BDR"
+      ],
+      "assignedMembers": [],
+      "dueDate": null,
+      "lastActivity": "2025-09-23T14:28:31.388Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355494"
+    },
+    {
+      "id": "68cb02a7484046b8c2f64bbe",
+      "title": "Implementar testes de integração frontend↔backend → DWII 038",
+      "description": "_**Garantir que os componentes React consumam corretamente os endpoints da API**_\n\nUS11 - Interface Responsiva Básica [5]\n\n> _Como usuário,_\n>\n> _Quero acessar a plataforma por meio de uma interface simples e responsiva,_\n>\n> _Para consultar dados em diferentes dispositivos sem dificuldades de navegação._\n\n**Critérios de aceite:**\n\n- Implementação inicial em React/TypeScript\n- Layout responsivo para desktop e mobile\n- Navegação funcional entre páginas principais\n- Performance aceitável em dispositivos comuns",
+      "column": "TO DO",
+      "storyPoints": 0,
+      "taskCode": "DWII 038",
+      "labels": [
+        "DW2"
+      ],
+      "assignedMembers": [],
+      "dueDate": null,
+      "lastActivity": "2025-09-23T14:28:34.473Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355498"
+    },
+    {
+      "id": "68cb02b5f2c3f6ab1bd81149",
+      "title": "Analisar complexidade da paginação e ordenação do endpoint /sima→ ED 040",
+      "description": "_**Avaliar custo dos algoritmos aplicados e possíveis gargalos em grandes datasets. Paginação/ordenação nasce na API**_ `GET /sima`\n\nUS09 - API REST Backend Básica [3]\n\n> _Como desenvolvedor,_\n>\n> _Quero disponibilizar uma API REST inicial em Node.js/TypeScript,_\n>\n> _Para permitir consultas básicas ao banco PostgreSQL de forma padronizada na MVP._\n\n**Critérios de Aceite:**\n\n- Endpoints RESTful básicos documentados (ex.: /dados, /parâmetros)\n- Validação mínima de parâmetros de entrada\n- Tratamento inicial de erros (respostas HTTP claras)\n- Deploy funcional e acessível via container básico",
+      "column": "TO DO",
+      "storyPoints": 0,
+      "taskCode": "ED 040",
+      "labels": [
+        "ED"
+      ],
+      "assignedMembers": [],
+      "dueDate": null,
+      "lastActivity": "2025-09-23T14:28:37.961Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355501"
+    },
+    {
+      "id": "68cb02b970ae800dcc5d9f4a",
+      "title": "Criar relatório simples de desempenho → MC 041",
+      "description": "_**Coletar métricas de tempo médio de resposta e exportar em formato gráfico ou tabela. Mede tempo/custo da exportação CSV com filtros**_\n\nUS04 – Exportação de Dados em CSV [3]\n\n> _Como usuário,_\n>\n> _Quero consultar e exportar os dados no formato CSV,_\n>\n> _Para possibilitar sua utilização em outras ferramentas e atividades correlatas._\n\n**Critérios de aceite:**\n\n- Permitir exportação de todos os registros em CSV\n- Garantir compatibilidade com softwares comuns (Excel, LibreOffice, R, Python)\n- Preservar a estrutura e integridade dos dados no arquivo exportado\n- Incluir cabeçalhos e metadados no arquivo gerado\n- Possibilitar exportação de dados filtrados da tabela",
+      "column": "TO DO",
+      "storyPoints": 0,
+      "taskCode": "MC 041",
+      "labels": [
+        "MC"
+      ],
+      "assignedMembers": [],
+      "dueDate": null,
+      "lastActivity": "2025-09-23T14:28:41.531Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355505"
+    },
+    {
+      "id": "68dc7051aefd264bc3f93ed7",
+      "title": "Implementar endpoint GET /furnas/tbcampanhaportabela/all → BD 056",
+      "description": "_**Consultar tabela/catálogo de parâmetros furnas no PostgreSQL e expor lista normalizada via API**_\n\nUS09 - API REST Backend Básica [3]\n\n> _Como desenvolvedor,_\n>\n> _Quero disponibilizar uma API REST inicial em Node.js/TypeScript,_\n>\n> _Para permitir consultas básicas ao banco PostgreSQL de forma padronizada na MVP._\n\n**Critérios de Aceite:**\n\n- Endpoints RESTful básicos documentados (ex.: /dados, /parâmetros)\n- Validação mínima de parâmetros de entrada\n- Tratamento inicial de erros (respostas HTTP claras)\n- Deploy funcional e acessível via container básico",
+      "column": "TO DO",
+      "storyPoints": 0,
+      "taskCode": "BD 056",
+      "labels": [
+        "BDR",
+        "SP1"
+      ],
+      "assignedMembers": [],
+      "dueDate": null,
+      "lastActivity": "2025-10-01T00:18:27.430Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355510"
+    },
+    {
+      "id": "68dc71a87199ee63f59248cb",
+      "title": "Implementação mapa interativo → MC 057",
+      "description": "",
+      "column": "TO DO",
+      "storyPoints": 0,
+      "taskCode": "MC 057",
+      "labels": [],
+      "assignedMembers": [],
+      "dueDate": null,
+      "lastActivity": "2025-10-01T00:17:19.547Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355514"
+    },
+    {
+      "id": "68cb02bfacadec3b443c07af",
+      "title": "Implementar script de automação para subir containers → TP 042",
+      "description": "_**Script único que execute build/start de todos os serviços, simplificando setup do time. Automatiza o bring-up do ambiente containerizado**_\n\nUS08 - Configuração de Ambiente Containerizado [5]\n\n> _Como desenvolvedor,_\n>\n> _Quero um ambiente containerizado para todas as camadas,_\n>\n> _Para garantir consistência e facilitar o processo de deploy._\n\n**Critérios de aceite:**\n\n- Docker Compose com PostgreSQL, Node.js e React\n- Variáveis de ambiente configuráveis\n- Scripts de inicialização de dados incluídos\n- Documentação de setup",
+      "column": "TO DO",
+      "storyPoints": 0,
+      "taskCode": "TP 042",
+      "labels": [
+        "TP"
+      ],
+      "assignedMembers": [],
+      "dueDate": null,
+      "lastActivity": "2025-09-26T23:14:59.301Z",
+      "isCompleted": true,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355518"
+    },
+    {
+      "id": "68dc71d7cffc9795898c5575",
+      "title": "Construção dos polígonos no mapa interativo (sima, furnas, balcar) → MC 058",
+      "description": "",
+      "column": "TO DO",
+      "storyPoints": 0,
+      "taskCode": "MC 058",
+      "labels": [],
+      "assignedMembers": [],
+      "dueDate": null,
+      "lastActivity": "2025-10-01T00:17:26.839Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355522"
+    },
+    {
+      "id": "68dc72c7468d532b6fef29c9",
+      "title": "Construção funções recursivas para ordenação dos dados do backend baseado nos IDs → ED 059",
+      "description": "",
+      "column": "TO DO",
+      "storyPoints": 0,
+      "taskCode": "ED 059",
+      "labels": [],
+      "assignedMembers": [],
+      "dueDate": null,
+      "lastActivity": "2025-10-01T00:17:33.492Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355526"
+    },
+    {
+      "id": "68dc72f8ff4f30aa38b80bd8",
+      "title": "Construção de funções de ordenação de arrays de objetos → ED 060",
+      "description": "",
+      "column": "TO DO",
+      "storyPoints": 0,
+      "taskCode": "ED 060",
+      "labels": [],
+      "assignedMembers": [],
+      "dueDate": null,
+      "lastActivity": "2025-10-01T00:17:39.595Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355529"
+    },
+    {
+      "id": "68c9f781d1150a7481ad9b91",
+      "title": "Criar campo de busca rápida → MC 004",
+      "description": "_**Análise de eficiência e tempo de resposta da busca**_\n\nUS03 – Consulta de Dados em Tabela [5]\n\n> _Como usuário,_\n>\n> _Quero consultar e visualizar os dados em formato tabular,_\n>\n> _Para facilitar a análise e interpretação estruturada das informações apresentadas_.\n\n**Critérios de aceite:**\n\n- Exibir dados em tabela responsiva\n- Incluir paginação para grandes volumes de registros\n- Permitir ordenação por colunas (crescente e decrescente)\n- Incluir campo de busca para filtragem rápida\n- Mostrar metadados relevantes (instituição, reservatório, data de coleta)",
+      "column": "DOING",
+      "storyPoints": 0,
+      "taskCode": "MC 004",
+      "labels": [
+        "MC",
+        "SP1"
+      ],
+      "assignedMembers": [
+        {
+          "name": "GABRIELLY NEU DOS SANTOS",
+          "initials": "GS",
+          "avatar": "https://trello-members.s3.amazonaws.com/67ca334a34d0ca9f26b2afd6/5d992095c7ed3857d2caca8c85567207"
+        }
+      ],
+      "dueDate": null,
+      "lastActivity": "2025-09-23T14:28:53.457Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355534"
+    },
+    {
+      "id": "68ca13096f881e578072f113",
+      "title": "Documentar endpoints → ESII 026",
+      "description": "_**Descrever contrato dos endpoints, parâmetros e exemplos de request/response em README/Swagger**_\n\nUS09 - API REST Backend Básica [3]\n\n> _Como desenvolvedor,_\n>\n> _Quero disponibilizar uma API REST inicial em Node.js/TypeScript,_\n>\n> _Para permitir consultas básicas ao banco PostgreSQL de forma padronizada na MVP._\n\n**Critérios de Aceite:**\n\n- Endpoints RESTful básicos documentados (ex.: /dados, /parâmetros)\n- Validação mínima de parâmetros de entrada\n- Tratamento inicial de erros (respostas HTTP claras)\n- Deploy funcional e acessível via container básico",
+      "column": "DOING",
+      "storyPoints": 0,
+      "taskCode": "ESII 026",
+      "labels": [
+        "ES2",
+        "SP1"
+      ],
+      "assignedMembers": [
+        {
+          "name": "Manuela Lucia Lemes de Castro",
+          "initials": "MC",
+          "avatar": "https://trello-members.s3.amazonaws.com/67cf6da33dc4ab4dd5d4306b/3215e57aec712175d50c476ae54dba15"
+        }
+      ],
+      "dueDate": null,
+      "lastActivity": "2025-09-26T22:11:06.481Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355545"
+    },
+    {
+      "id": "68ca0e7d41303182756b3936",
+      "title": "Documentar setup e fluxos → ESII 018",
+      "description": "_**Passo a passo no README: pré-requisitos,**_ `.env`, `docker compose up`, _**ordem de serviços e troubleshooting**_\n\nUS08 - Configuração de Ambiente Containerizado [5]\n\n> _Como desenvolvedor,_\n>\n> _Quero um ambiente containerizado para todas as camadas,_\n>\n> _Para garantir consistência e facilitar o processo de deploy._\n\n**Critérios de aceite:**\n\n- Docker Compose com PostgreSQL, Node.js e React\n- Variáveis de ambiente configuráveis\n- Scripts de inicialização de dados incluídos\n- Documentação de setup",
+      "column": "DOING",
+      "storyPoints": 0,
+      "taskCode": "ESII 018",
+      "labels": [
+        "ES2",
+        "SP1"
+      ],
+      "assignedMembers": [
+        {
+          "name": "Alícia Silva Dias",
+          "initials": "AD",
+          "avatar": "https://trello-members.s3.amazonaws.com/67be6cd7dc6390ff20c73d7a/7a00de75c6151fd36b5a5a5864506faf"
+        }
+      ],
+      "dueDate": null,
+      "lastActivity": "2025-09-30T22:31:48.618Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355548"
+    },
+    {
+      "id": "68d722d41a9342830d4444a2",
+      "title": "Implementar endpoint GET /furnas/campanhoportabela → BDR 049",
+      "description": "_**Consultar tabela/catálogo de parâmetros furnas no PostgreSQL e expor lista normalizada via API**_\n\nUS09 - API REST Backend Básica [3]\n\n> _Como desenvolvedor,_\n>\n> _Quero disponibilizar uma API REST inicial em Node.js/TypeScript,_\n>\n> _Para permitir consultas básicas ao banco PostgreSQL de forma padronizada na MVP._\n\n**Critérios de Aceite:**\n\n- Endpoints RESTful básicos documentados (ex.: /dados, /parâmetros)\n- Validação mínima de parâmetros de entrada\n- Tratamento inicial de erros (respostas HTTP claras)\n- Deploy funcional e acessível via container básico",
+      "column": "DOING",
+      "storyPoints": 0,
+      "taskCode": "BDR 049",
+      "labels": [
+        "SP1",
+        "ES2"
+      ],
+      "assignedMembers": [
+        {
+          "name": "Manuela Lucia Lemes de Castro",
+          "initials": "MC",
+          "avatar": "https://trello-members.s3.amazonaws.com/67cf6da33dc4ab4dd5d4306b/3215e57aec712175d50c476ae54dba15"
+        }
+      ],
+      "dueDate": null,
+      "lastActivity": "2025-09-27T00:51:05.883Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355553"
+    },
+    {
+      "id": "68cab3fe2d57c14d350860e1",
+      "title": "Integrar API no frontend (campanha) → DWII 032",
+      "description": "_**Consumo de endpoints REST (axios/fetch), serviços tipados e estados loading/erro**_\n\nUS11 - Interface Responsiva Básica [5]\n\n> _Como usuário,_\n>\n> _Quero acessar a plataforma por meio de uma interface simples e responsiva,_\n>\n> _Para consultar dados em diferentes dispositivos sem dificuldades de navegação._\n\n**Critérios de aceite:**\n\n- Implementação inicial em React/TypeScript\n- Layout responsivo para desktop e mobile\n- Navegação funcional entre páginas principais\n- Performance aceitável em dispositivos comuns",
+      "column": "DOING",
+      "storyPoints": 0,
+      "taskCode": "DWII 032",
+      "labels": [
+        "DW2",
+        "SP1"
+      ],
+      "assignedMembers": [
+        {
+          "name": "Leo",
+          "initials": "L",
+          "avatar": "https://trello-members.s3.amazonaws.com/68370531529c4469d0fa8e9c/4b44ebd6e8d6d8fbab17dcd233fde421"
+        }
+      ],
+      "dueDate": null,
+      "lastActivity": "2025-09-30T22:31:48.618Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355559"
+    },
+    {
+      "id": "68d1cb50dbccffe9f5e7d115",
+      "title": "Modelagem Banco de Dados (sima, balcar-campanha, furnas-campanha) → TP 043 5 SP",
+      "description": "_**Criar classes em TypeScript correspondentes às tabelas já existentes no banco, garantindo que atributos, tipos e relacionamentos sejam refletidos no código**_\n\nUS09 - API REST Backend Básica [3]\n\n> _Como desenvolvedor,_\n>\n> _Quero disponibilizar uma API REST inicial em Node.js/TypeScript,_\n>\n> _Para permitir consultas básicas ao banco PostgreSQL de forma padronizada na MVP._\n\n**Critérios de Aceite:**\n\n- Endpoints RESTful básicos documentados (ex.: /dados, /parâmetros)\n- Validação mínima de parâmetros de entrada\n- Tratamento inicial de erros (respostas HTTP claras)\n- Deploy funcional e acessível via container básico",
+      "column": "DOING",
+      "storyPoints": 0,
+      "taskCode": "TP 043",
+      "labels": [
+        "TP",
+        "SP1"
+      ],
+      "assignedMembers": [
+        {
+          "name": "João Victor",
+          "initials": "JV",
+          "avatar": "https://trello-members.s3.amazonaws.com/67ca3262fbbe6b752eee6c35/c7bae35ca7ce5b365786020163433e6f"
+        }
+      ],
+      "dueDate": "2025-09-29T22:20:00.000Z",
+      "lastActivity": "2025-09-30T22:31:48.618Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355563"
+    },
+    {
+      "id": "68d71e0d7a54bcfebaaef389",
+      "title": "Modelagem casos de uso do projeto → ESII 048",
+      "description": "",
+      "column": "DOING",
+      "storyPoints": 0,
+      "taskCode": "ESII 048",
+      "labels": [
+        "ES2",
+        "SP1"
+      ],
+      "assignedMembers": [
+        {
+          "name": "Alícia Silva Dias",
+          "initials": "AD",
+          "avatar": "https://trello-members.s3.amazonaws.com/67be6cd7dc6390ff20c73d7a/7a00de75c6151fd36b5a5a5864506faf"
+        }
+      ],
+      "dueDate": null,
+      "lastActivity": "2025-09-30T22:31:48.618Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355567"
+    },
+    {
+      "id": "68d7168da8089d9c767c3318",
+      "title": "Refatorar MVP completo do frontend do projeto → DW2 047",
+      "description": "_**Construção da base da interface em React/TypeScript (header, grid, tipografia)**_\n\nUS11 - Interface Responsiva Básica [5]\n\n> _Como usuário,_\n>\n> _Quero acessar a plataforma por meio de uma interface simples e responsiva,_\n>\n> _Para consultar dados em diferentes dispositivos sem dificuldades de navegação._\n\n**Critérios de aceite:**\n\n- Implementação inicial em React/TypeScript\n- Layout responsivo para desktop e mobile\n- Navegação funcional entre páginas principais\n- Performance aceitável em dispositivos comuns",
+      "column": "DOING",
+      "storyPoints": 0,
+      "taskCode": "DW 2",
+      "labels": [
+        "DW2",
+        "SP1"
+      ],
+      "assignedMembers": [
+        {
+          "name": "João Victor",
+          "initials": "JV",
+          "avatar": "https://trello-members.s3.amazonaws.com/67ca3262fbbe6b752eee6c35/c7bae35ca7ce5b365786020163433e6f"
+        }
+      ],
+      "dueDate": null,
+      "lastActivity": "2025-09-30T22:31:48.618Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355571"
+    },
+    {
+      "id": "68cb02ad4e399f629639ef00",
+      "title": "Revisar critérios de aceitação com base no DoD → ESII 039",
+      "description": "_**Checar se cada US atende os critérios definidos, reforçando boas práticas de engenharia. Foco na entrega visível da sprint: UI pronta e demonstrável**_\n\nUS11 - Interface Responsiva Básica [5]\n\n> _Como usuário,_\n>\n> _Quero acessar a plataforma por meio de uma interface simples e responsiva,_\n>\n> _Para consultar dados em diferentes dispositivos sem dificuldades de navegação._\n\n**Critérios de aceite:**\n\n- Implementação inicial em React/TypeScript\n- Layout responsivo para desktop e mobile\n- Navegação funcional entre páginas principais\n- Performance aceitável em dispositivos comuns",
+      "column": "DOING",
+      "storyPoints": 0,
+      "taskCode": "ESII 039",
+      "labels": [
+        "ES2",
+        "SP1"
+      ],
+      "assignedMembers": [
+        {
+          "name": "Alícia Silva Dias",
+          "initials": "AD",
+          "avatar": "https://trello-members.s3.amazonaws.com/67be6cd7dc6390ff20c73d7a/7a00de75c6151fd36b5a5a5864506faf"
+        }
+      ],
+      "dueDate": null,
+      "lastActivity": "2025-09-30T22:31:48.618Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355576"
+    },
+    {
+      "id": "68cab40276c06350ccfeaec4",
+      "title": "Testes de usabilidade básica → ESII 034",
+      "description": "_**Teste empty states, feedbacks e navegação por teclado**_\n\nUS11 - Interface Responsiva Básica [5]\n\n> _Como usuário,_\n>\n> _Quero acessar a plataforma por meio de uma interface simples e responsiva,_\n>\n> _Para consultar dados em diferentes dispositivos sem dificuldades de navegação._\n\n**Critérios de aceite:**\n\n- Implementação inicial em React/TypeScript\n- Layout responsivo para desktop e mobile\n- Navegação funcional entre páginas principais\n- Performance aceitável em dispositivos comuns",
+      "column": "DOING",
+      "storyPoints": 0,
+      "taskCode": "ESII 034",
+      "labels": [
+        "ES2",
+        "SP1"
+      ],
+      "assignedMembers": [
+        {
+          "name": "Pedro Claudino Nunes",
+          "initials": "PN",
+          "avatar": "https://trello-members.s3.amazonaws.com/67e1e9463cd0a16925ce27d3/bbc25d254ce4d64137f9ed3398f179fe"
+        }
+      ],
+      "dueDate": null,
+      "lastActivity": "2025-09-30T22:31:48.618Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355580"
+    },
+    {
+      "id": "68cab3fbe3fff6e2c73f4d03",
+      "title": "Validar responsividade em diferentes dispositivos → DW2 038",
+      "description": "_**Testes práticos em várias resoluções (mobile, tablet, desktop)**_\n\nUS11 - Interface Responsiva Básica [5]\n\n> _Como usuário,_\n>\n> _Quero acessar a plataforma por meio de uma interface simples e responsiva,_\n>\n> _Para consultar dados em diferentes dispositivos sem dificuldades de navegação._\n\n**Critérios de aceite:**\n\n- Implementação inicial em React/TypeScript\n- Layout responsivo para desktop e mobile\n- Navegação funcional entre páginas principais\n- Performance aceitável em dispositivos comuns",
+      "column": "DOING",
+      "storyPoints": 0,
+      "taskCode": "DW 2",
+      "labels": [
+        "SP1",
+        "DW2"
+      ],
+      "assignedMembers": [
+        {
+          "name": "Pedro Claudino Nunes",
+          "initials": "PN",
+          "avatar": "https://trello-members.s3.amazonaws.com/67e1e9463cd0a16925ce27d3/bbc25d254ce4d64137f9ed3398f179fe"
+        }
+      ],
+      "dueDate": null,
+      "lastActivity": "2025-09-30T22:31:48.618Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355583"
+    },
+    {
+      "id": "68dc6fc514cc22f6118f6160",
+      "title": "Implementar endpoint GET /balcar/sitio/all → BD 051",
+      "description": "_**Consultar tabela/catálogo de parâmetros furnas no PostgreSQL e expor lista normalizada via API**_\n\nUS09 - API REST Backend Básica [3]\n\n> _Como desenvolvedor,_\n>\n> _Quero disponibilizar uma API REST inicial em Node.js/TypeScript,_\n>\n> _Para permitir consultas básicas ao banco PostgreSQL de forma padronizada na MVP._\n\n**Critérios de Aceite:**\n\n- Endpoints RESTful básicos documentados (ex.: /dados, /parâmetros)\n- Validação mínima de parâmetros de entrada\n- Tratamento inicial de erros (respostas HTTP claras)\n- Deploy funcional e acessível via container básico",
+      "column": "DOING",
+      "storyPoints": 0,
+      "taskCode": "BD 051",
+      "labels": [
+        "BDR",
+        "SP1"
+      ],
+      "assignedMembers": [
+        {
+          "name": "Alícia Silva Dias",
+          "initials": "AD",
+          "avatar": "https://trello-members.s3.amazonaws.com/67be6cd7dc6390ff20c73d7a/7a00de75c6151fd36b5a5a5864506faf"
+        }
+      ],
+      "dueDate": null,
+      "lastActivity": "2025-10-01T00:07:59.393Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355587"
+    },
+    {
+      "id": "68dc6feec2a1f23082d45b41",
+      "title": "Implementar endpoint GET /balcar/campanha/all → BD 052",
+      "description": "_**Consultar tabela/catálogo de parâmetros furnas no PostgreSQL e expor lista normalizada via API**_\n\nUS09 - API REST Backend Básica [3]\n\n> _Como desenvolvedor,_\n>\n> _Quero disponibilizar uma API REST inicial em Node.js/TypeScript,_\n>\n> _Para permitir consultas básicas ao banco PostgreSQL de forma padronizada na MVP._\n\n**Critérios de Aceite:**\n\n- Endpoints RESTful básicos documentados (ex.: /dados, /parâmetros)\n- Validação mínima de parâmetros de entrada\n- Tratamento inicial de erros (respostas HTTP claras)\n- Deploy funcional e acessível via container básico",
+      "column": "DOING",
+      "storyPoints": 0,
+      "taskCode": "BD 052",
+      "labels": [
+        "BDR",
+        "SP1"
+      ],
+      "assignedMembers": [
+        {
+          "name": "GABRIELLY NEU DOS SANTOS",
+          "initials": "GS",
+          "avatar": "https://trello-members.s3.amazonaws.com/67ca334a34d0ca9f26b2afd6/5d992095c7ed3857d2caca8c85567207"
+        }
+      ],
+      "dueDate": null,
+      "lastActivity": "2025-10-01T00:08:30.270Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355592"
+    },
+    {
+      "id": "68dc70096b94ea9748977d81",
+      "title": "Implementar endpoint GET /balcar/instituicao/all → BD 053",
+      "description": "_**Consultar tabela/catálogo de parâmetros furnas no PostgreSQL e expor lista normalizada via API**_\n\nUS09 - API REST Backend Básica [3]\n\n> _Como desenvolvedor,_\n>\n> _Quero disponibilizar uma API REST inicial em Node.js/TypeScript,_\n>\n> _Para permitir consultas básicas ao banco PostgreSQL de forma padronizada na MVP._\n\n**Critérios de Aceite:**\n\n- Endpoints RESTful básicos documentados (ex.: /dados, /parâmetros)\n- Validação mínima de parâmetros de entrada\n- Tratamento inicial de erros (respostas HTTP claras)\n- Deploy funcional e acessível via container básico",
+      "column": "DOING",
+      "storyPoints": 0,
+      "taskCode": "BD 053",
+      "labels": [
+        "BDR",
+        "SP1"
+      ],
+      "assignedMembers": [
+        {
+          "name": "Leo",
+          "initials": "L",
+          "avatar": "https://trello-members.s3.amazonaws.com/68370531529c4469d0fa8e9c/4b44ebd6e8d6d8fbab17dcd233fde421"
+        }
+      ],
+      "dueDate": null,
+      "lastActivity": "2025-10-01T00:08:57.191Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355596"
+    },
+    {
+      "id": "68dc7024e656e22a0773207c",
+      "title": "Implementar endpoint GET /furnas/campoportabela /all → BD 054",
+      "description": "_**Consultar tabela/catálogo de parâmetros furnas no PostgreSQL e expor lista normalizada via API**_\n\nUS09 - API REST Backend Básica [3]\n\n> _Como desenvolvedor,_\n>\n> _Quero disponibilizar uma API REST inicial em Node.js/TypeScript,_\n>\n> _Para permitir consultas básicas ao banco PostgreSQL de forma padronizada na MVP._\n\n**Critérios de Aceite:**\n\n- Endpoints RESTful básicos documentados (ex.: /dados, /parâmetros)\n- Validação mínima de parâmetros de entrada\n- Tratamento inicial de erros (respostas HTTP claras)\n- Deploy funcional e acessível via container básico",
+      "column": "DOING",
+      "storyPoints": 0,
+      "taskCode": "BD 054",
+      "labels": [
+        "BDR",
+        "SP1"
+      ],
+      "assignedMembers": [
+        {
+          "name": "Manuela Lucia Lemes de Castro",
+          "initials": "MC",
+          "avatar": "https://trello-members.s3.amazonaws.com/67cf6da33dc4ab4dd5d4306b/3215e57aec712175d50c476ae54dba15"
+        }
+      ],
+      "dueDate": null,
+      "lastActivity": "2025-10-01T00:09:11.846Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355601"
+    },
+    {
+      "id": "68dc7041789d86a4c1afb3ce",
+      "title": "Implementar endpoint GET /furnas/tbcampanhaportabela/all → BD 055",
+      "description": "_**Consultar tabela/catálogo de parâmetros furnas no PostgreSQL e expor lista normalizada via API**_\n\nUS09 - API REST Backend Básica [3]\n\n> _Como desenvolvedor,_\n>\n> _Quero disponibilizar uma API REST inicial em Node.js/TypeScript,_\n>\n> _Para permitir consultas básicas ao banco PostgreSQL de forma padronizada na MVP._\n\n**Critérios de Aceite:**\n\n- Endpoints RESTful básicos documentados (ex.: /dados, /parâmetros)\n- Validação mínima de parâmetros de entrada\n- Tratamento inicial de erros (respostas HTTP claras)\n- Deploy funcional e acessível via container básico",
+      "column": "DOING",
+      "storyPoints": 0,
+      "taskCode": "BD 055",
+      "labels": [
+        "BDR",
+        "SP1"
+      ],
+      "assignedMembers": [
+        {
+          "name": "Pedro Claudino Nunes",
+          "initials": "PN",
+          "avatar": "https://trello-members.s3.amazonaws.com/67e1e9463cd0a16925ce27d3/bbc25d254ce4d64137f9ed3398f179fe"
+        }
+      ],
+      "dueDate": null,
+      "lastActivity": "2025-10-01T00:09:41.818Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355605"
+    },
+    {
+      "id": "68d70eb5474fc7e09535f3f6",
+      "title": "Implementar endpoint GET /balcar/reservatorio → BDR 046",
+      "description": "_**Consultar tabela/catálogo de balcar no PostgreSQL e expor lista normalizada via API**_\n\nUS09 - API REST Backend Básica [3]\n\n> _Como desenvolvedor,_\n>\n> _Quero disponibilizar uma API REST inicial em Node.js/TypeScript,_\n>\n> _Para permitir consultas básicas ao banco PostgreSQL de forma padronizada na MVP._\n\n**Critérios de Aceite:**\n\n- Endpoints RESTful básicos documentados (ex.: /dados, /parâmetros)\n- Validação mínima de parâmetros de entrada\n- Tratamento inicial de erros (respostas HTTP claras)\n- Deploy funcional e acessível via container básico",
+      "column": "DONE SP1",
+      "storyPoints": 0,
+      "taskCode": "BDR 046",
+      "labels": [
+        "DW2",
+        "SP1"
+      ],
+      "assignedMembers": [
+        {
+          "name": "Leo",
+          "initials": "L",
+          "avatar": "https://trello-members.s3.amazonaws.com/68370531529c4469d0fa8e9c/4b44ebd6e8d6d8fbab17dcd233fde421"
+        }
+      ],
+      "dueDate": null,
+      "lastActivity": "2025-09-30T23:19:51.025Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355609"
+    },
+    {
+      "id": "68c9f77da12fca41015603c8",
+      "title": "Criar componente tabela responsiva → DWII 001",
+      "description": "_**Responsabilidade principal: frontend React/TypeScript**_\n\nUS03 – Consulta de Dados em Tabela [5]\n\n> _Como usuário,_\n>\n> _Quero consultar e visualizar os dados em formato tabular,_\n>\n> _Para facilitar a análise e interpretação estruturada das informações apresentadas_.\n\n**Critérios de aceite:**\n\n- Exibir dados em tabela responsiva\n- Incluir paginação para grandes volumes de registros\n- Permitir ordenação por colunas (crescente e decrescente)\n- Incluir campo de busca para filtragem rápida\n- Mostrar metadados relevantes (instituição, reservatório, data de coleta)",
+      "column": "DONE SP1",
+      "storyPoints": 0,
+      "taskCode": "DWII 001",
+      "labels": [
+        "DW2",
+        "SP1"
+      ],
+      "assignedMembers": [
+        {
+          "name": "Leo",
+          "initials": "L",
+          "avatar": "https://trello-members.s3.amazonaws.com/68370531529c4469d0fa8e9c/4b44ebd6e8d6d8fbab17dcd233fde421"
+        }
+      ],
+      "dueDate": "2025-09-24T17:38:00.000Z",
+      "lastActivity": "2025-09-27T23:32:02.863Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355613"
+    },
+    {
+      "id": "68c9f785177a213876902406",
+      "title": "Implementar loading states e mensagens de erro → ESII 006",
+      "description": "_**Boas práticas de UX, usabilidade e engenharia de software**_\n\nUS03 – Consulta de Dados em Tabela [5]\n\n> _Como usuário,_\n>\n> _Quero consultar e visualizar os dados em formato tabular,_\n>\n> _Para facilitar a análise e interpretação estruturada das informações apresentadas_.\n\n**Critérios de aceite:**\n\n- Exibir dados em tabela responsiva\n- Incluir paginação para grandes volumes de registros\n- Permitir ordenação por colunas (crescente e decrescente)\n- Incluir campo de busca para filtragem rápida\n- Mostrar metadados relevantes (instituição, reservatório, data de coleta)",
+      "column": "DONE SP1",
+      "storyPoints": 0,
+      "taskCode": "ESII 006",
+      "labels": [
+        "ES2",
+        "SP1"
+      ],
+      "assignedMembers": [
+        {
+          "name": "GABRIELLY NEU DOS SANTOS",
+          "initials": "GS",
+          "avatar": "https://trello-members.s3.amazonaws.com/67ca334a34d0ca9f26b2afd6/5d992095c7ed3857d2caca8c85567207"
+        }
+      ],
+      "dueDate": null,
+      "lastActivity": "2025-09-27T23:32:01.856Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355617"
+    },
+    {
+      "id": "68ca004385baaf341e314d95",
+      "title": "Gerar arquivo CSV com cabeçalhos + metadados (sima)→ BDR 009",
+      "description": "_**Responsável por estruturar os dados vindos do banco e incluir informações adicionais relevantes**_\n\nUS04 – Exportação de Dados em CSV [3]\n\n> _Como usuário,_\n>\n> _Quero consultar e exportar os dados no formato CSV,_\n>\n> _Para possibilitar sua utilização em outras ferramentas e atividades correlatas._\n\n**Critérios de aceite:**\n\n- Permitir exportação de todos os registros em CSV\n- Garantir compatibilidade com softwares comuns (Excel, LibreOffice, R, Python)\n- Preservar a estrutura e integridade dos dados no arquivo exportado\n- Incluir cabeçalhos e metadados no arquivo gerado\n- Possibilitar exportação de dados filtrados da tabela",
+      "column": "DONE SP1",
+      "storyPoints": 0,
+      "taskCode": "BDR 009",
+      "labels": [
+        "BDR",
+        "SP1"
+      ],
+      "assignedMembers": [
+        {
+          "name": "João Victor",
+          "initials": "JV",
+          "avatar": "https://trello-members.s3.amazonaws.com/67ca3262fbbe6b752eee6c35/c7bae35ca7ce5b365786020163433e6f"
+        }
+      ],
+      "dueDate": "2025-09-26T17:38:00.000Z",
+      "lastActivity": "2025-09-27T23:32:01.136Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355621"
+    },
+    {
+      "id": "68ca004d01d6786346b89f03",
+      "title": "Criar endpoint de exportação CSV no backend → DWII 014",
+      "description": "_**Desenvolver rota REST para exportação, permitindo download direto via API**_\n\nUS04 – Exportação de Dados em CSV [3]\n\n> _Como usuário,_\n>\n> _Quero consultar e exportar os dados no formato CSV,_\n>\n> _Para possibilitar sua utilização em outras ferramentas e atividades correlatas._\n\n**Critérios de aceite:**\n\n- Permitir exportação de todos os registros em CSV\n- Garantir compatibilidade com softwares comuns (Excel, LibreOffice, R, Python)\n- Preservar a estrutura e integridade dos dados no arquivo exportado\n- Incluir cabeçalhos e metadados no arquivo gerado\n- Possibilitar exportação de dados filtrados da tabela",
+      "column": "DONE SP1",
+      "storyPoints": 0,
+      "taskCode": "DWII 014",
+      "labels": [
+        "DW2",
+        "SP1"
+      ],
+      "assignedMembers": [
+        {
+          "name": "Pedro Claudino Nunes",
+          "initials": "PN",
+          "avatar": "https://trello-members.s3.amazonaws.com/67e1e9463cd0a16925ce27d3/bbc25d254ce4d64137f9ed3398f179fe"
+        }
+      ],
+      "dueDate": "2025-09-24T17:38:00.000Z",
+      "lastActivity": "2025-09-27T23:32:00.060Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355625"
+    },
+    {
+      "id": "68ca004f61283e9607491790",
+      "title": "Documentar como usar a exportação → ESII 015",
+      "description": "_**Explicar no README/guia como o usuário pode gerar e utilizar os arquivos CSV**_\n\nUS04 – Exportação de Dados em CSV [3]\n\n> _Como usuário,_\n>\n> _Quero consultar e exportar os dados no formato CSV,_\n>\n> _Para possibilitar sua utilização em outras ferramentas e atividades correlatas._\n\n**Critérios de aceite:**\n\n- Permitir exportação de todos os registros em CSV\n- Garantir compatibilidade com softwares comuns (Excel, LibreOffice, R, Python)\n- Preservar a estrutura e integridade dos dados no arquivo exportado\n- Incluir cabeçalhos e metadados no arquivo gerado\n- Possibilitar exportação de dados filtrados da tabela",
+      "column": "DONE SP1",
+      "storyPoints": 0,
+      "taskCode": "ESII 015",
+      "labels": [
+        "ES2",
+        "SP1"
+      ],
+      "assignedMembers": [
+        {
+          "name": "Manuela Lucia Lemes de Castro",
+          "initials": "MC",
+          "avatar": "https://trello-members.s3.amazonaws.com/67cf6da33dc4ab4dd5d4306b/3215e57aec712175d50c476ae54dba15"
+        }
+      ],
+      "dueDate": null,
+      "lastActivity": "2025-09-27T23:31:59.520Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355629"
+    },
+    {
+      "id": "68ca12fde3a3048b0906f436",
+      "title": "Implementar endpoint GET /sima com paginação → DWII 20",
+      "description": "_**Desenvolver rota REST em Node/TS e aplicar paginação no resultado; retornar JSON padronizado**_\n\nUS09 - API REST Backend Básica [3]\n\n> _Como desenvolvedor,_\n>\n> _Quero disponibilizar uma API REST inicial em Node.js/TypeScript,_\n>\n> _Para permitir consultas básicas ao banco PostgreSQL de forma padronizada na MVP._\n\n**Critérios de Aceite:**\n\n- Endpoints RESTful básicos documentados (ex.: /dados, /parâmetros)\n- Validação mínima de parâmetros de entrada\n- Tratamento inicial de erros (respostas HTTP claras)\n- Deploy funcional e acessível via container básico",
+      "column": "DONE SP1",
+      "storyPoints": 0,
+      "taskCode": "DWII 20",
+      "labels": [
+        "DW2",
+        "SP1"
+      ],
+      "assignedMembers": [
+        {
+          "name": "Leo",
+          "initials": "L",
+          "avatar": "https://trello-members.s3.amazonaws.com/68370531529c4469d0fa8e9c/4b44ebd6e8d6d8fbab17dcd233fde421"
+        }
+      ],
+      "dueDate": "2025-09-24T21:45:00.000Z",
+      "lastActivity": "2025-09-27T23:31:58.295Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355634"
+    },
+    {
+      "id": "68ca12fe85676d20fd7fd6fc",
+      "title": "Implementar endpoint GET /sima/estacao/all → BDR 021",
+      "description": "_**Consultar tabela/catálogo de parâmetros no PostgreSQL e expor lista normalizada via API**_\n\nUS09 - API REST Backend Básica [3]\n\n> _Como desenvolvedor,_\n>\n> _Quero disponibilizar uma API REST inicial em Node.js/TypeScript,_\n>\n> _Para permitir consultas básicas ao banco PostgreSQL de forma padronizada na MVP._\n\n**Critérios de Aceite:**\n\n- Endpoints RESTful básicos documentados (ex.: /dados, /parâmetros)\n- Validação mínima de parâmetros de entrada\n- Tratamento inicial de erros (respostas HTTP claras)\n- Deploy funcional e acessível via container básico",
+      "column": "DONE SP1",
+      "storyPoints": 0,
+      "taskCode": "BDR 021",
+      "labels": [
+        "DW2",
+        "SP1"
+      ],
+      "assignedMembers": [
+        {
+          "name": "GABRIELLY NEU DOS SANTOS",
+          "initials": "GS",
+          "avatar": "https://trello-members.s3.amazonaws.com/67ca334a34d0ca9f26b2afd6/5d992095c7ed3857d2caca8c85567207"
+        }
+      ],
+      "dueDate": "2025-09-22T21:45:00.000Z",
+      "lastActivity": "2025-09-27T23:31:57.869Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355638"
+    },
+    {
+      "id": "68ca12ff5db386abdb042e9f",
+      "title": "Implementar validação mínima de entrada → TP 022",
+      "description": "_**Middleware para checar query params obrigatórios/tipos/ranges e rejeitar entradas inválidas**_\n\nUS09 - API REST Backend Básica [3]\n\n> _Como desenvolvedor,_\n>\n> _Quero disponibilizar uma API REST inicial em Node.js/TypeScript,_\n>\n> _Para permitir consultas básicas ao banco PostgreSQL de forma padronizada na MVP._\n\n**Critérios de Aceite:**\n\n- Endpoints RESTful básicos documentados (ex.: /dados, /parâmetros)\n- Validação mínima de parâmetros de entrada\n- Tratamento inicial de erros (respostas HTTP claras)\n- Deploy funcional e acessível via container básico",
+      "column": "DONE SP1",
+      "storyPoints": 0,
+      "taskCode": "TP 022",
+      "labels": [
+        "TP",
+        "SP1"
+      ],
+      "assignedMembers": [
+        {
+          "name": "Manuela Lucia Lemes de Castro",
+          "initials": "MC",
+          "avatar": "https://trello-members.s3.amazonaws.com/67cf6da33dc4ab4dd5d4306b/3215e57aec712175d50c476ae54dba15"
+        }
+      ],
+      "dueDate": "2025-09-22T21:45:00.000Z",
+      "lastActivity": "2025-09-27T23:31:53.999Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355642"
+    },
+    {
+      "id": "68cab3f4aa2830655251f617",
+      "title": "Implementar layout dashboard inicial react → DWII 027",
+      "description": "_**Construção da base da interface em React/TypeScript (header, grid, tipografia)**_\n\nUS11 - Interface Responsiva Básica [5]\n\n> _Como usuário,_\n>\n> _Quero acessar a plataforma por meio de uma interface simples e responsiva,_\n>\n> _Para consultar dados em diferentes dispositivos sem dificuldades de navegação._\n\n**Critérios de aceite:**\n\n- Implementação inicial em React/TypeScript\n- Layout responsivo para desktop e mobile\n- Navegação funcional entre páginas principais\n- Performance aceitável em dispositivos comuns",
+      "column": "DONE SP1",
+      "storyPoints": 0,
+      "taskCode": "DWII 027",
+      "labels": [
+        "DW2",
+        "SP1"
+      ],
+      "assignedMembers": [
+        {
+          "name": "João Victor",
+          "initials": "JV",
+          "avatar": "https://trello-members.s3.amazonaws.com/67ca3262fbbe6b752eee6c35/c7bae35ca7ce5b365786020163433e6f"
+        }
+      ],
+      "dueDate": "2025-09-24T17:38:00.000Z",
+      "lastActivity": "2025-09-27T23:31:52.711Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355647"
+    },
+    {
+      "id": "68cab3fabe89e68082654527",
+      "title": "Ajustar responsividade do projeto (mobile first) → ESII 030",
+      "description": "_**Aplicação de breakpoints e boas práticas de acessibilidade**_\n\nUS11 - Interface Responsiva Básica [5]\n\n> _Como usuário,_\n>\n> _Quero acessar a plataforma por meio de uma interface simples e responsiva,_\n>\n> _Para consultar dados em diferentes dispositivos sem dificuldades de navegação._\n\n**Critérios de aceite:**\n\n- Implementação inicial em React/TypeScript\n- Layout responsivo para desktop e mobile\n- Navegação funcional entre páginas principais\n- Performance aceitável em dispositivos comuns",
+      "column": "DONE SP1",
+      "storyPoints": 0,
+      "taskCode": "ESII 030",
+      "labels": [
+        "ES2"
+      ],
+      "assignedMembers": [
+        {
+          "name": "João Victor",
+          "initials": "JV",
+          "avatar": "https://trello-members.s3.amazonaws.com/67ca3262fbbe6b752eee6c35/c7bae35ca7ce5b365786020163433e6f"
+        }
+      ],
+      "dueDate": null,
+      "lastActivity": "2025-09-27T23:31:52.214Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355651"
+    },
+    {
+      "id": "68cab4049e137e2bde0552b5",
+      "title": "Criar dashboard no Figma → ESII 035 3 SP",
+      "description": "_**Wireframe/hi-fi do painel: hierarquia visual, grids, componentes e fluxos**_\n\nUS11 - Interface Responsiva Básica [5]\n\n> _Como usuário,_\n>\n> _Quero acessar a plataforma por meio de uma interface simples e responsiva,_\n>\n> _Para consultar dados em diferentes dispositivos sem dificuldades de navegação._\n\n**Critérios de aceite:**\n\n- Implementação inicial em React/TypeScript\n- Layout responsivo para desktop e mobile\n- Navegação funcional entre páginas principais\n- Performance aceitável em dispositivos comuns",
+      "column": "DONE SP1",
+      "storyPoints": 0,
+      "taskCode": "ESII 035",
+      "labels": [
+        "ES2",
+        "SP1"
+      ],
+      "assignedMembers": [
+        {
+          "name": "Alícia Silva Dias",
+          "initials": "AD",
+          "avatar": "https://trello-members.s3.amazonaws.com/67be6cd7dc6390ff20c73d7a/7a00de75c6151fd36b5a5a5864506faf"
+        }
+      ],
+      "dueDate": "2025-09-22T21:45:00.000Z",
+      "lastActivity": "2025-09-27T23:02:29.960Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355655"
+    },
+    {
+      "id": "68cab40644d1ddaca9c7e9cf",
+      "title": "Implementação de tabelas no Figma → ESII 036 3 SP",
+      "description": "_**Design do componente tabela**_\n\nUS11 - Interface Responsiva Básica [5]\n\n> _Como usuário,_\n>\n> _Quero acessar a plataforma por meio de uma interface simples e responsiva,_\n>\n> _Para consultar dados em diferentes dispositivos sem dificuldades de navegação._\n\n**Critérios de aceite:**\n\n- Implementação inicial em React/TypeScript\n- Layout responsivo para desktop e mobile\n- Navegação funcional entre páginas principais\n- Performance aceitável em dispositivos comuns",
+      "column": "DONE SP1",
+      "storyPoints": 0,
+      "taskCode": "ESII 036",
+      "labels": [
+        "ES2",
+        "SP1"
+      ],
+      "assignedMembers": [
+        {
+          "name": "Pedro Claudino Nunes",
+          "initials": "PN",
+          "avatar": "https://trello-members.s3.amazonaws.com/67e1e9463cd0a16925ce27d3/bbc25d254ce4d64137f9ed3398f179fe"
+        }
+      ],
+      "dueDate": "2025-09-22T21:45:00.000Z",
+      "lastActivity": "2025-09-27T23:03:04.339Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355659"
+    },
+    {
+      "id": "68d1e44438ef9de43557ee8d",
+      "title": "Modelagem de diagrama de classe / tabela sima → ESII 044",
+      "description": "",
+      "column": "DONE SP1",
+      "storyPoints": 0,
+      "taskCode": "ESII 044",
+      "labels": [
+        "ES2",
+        "SP1"
+      ],
+      "assignedMembers": [
+        {
+          "name": "Alícia Silva Dias",
+          "initials": "AD",
+          "avatar": "https://trello-members.s3.amazonaws.com/67be6cd7dc6390ff20c73d7a/7a00de75c6151fd36b5a5a5864506faf"
+        }
+      ],
+      "dueDate": null,
+      "lastActivity": "2025-09-27T23:03:26.036Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355664"
+    },
+    {
+      "id": "68d70ea9e4526bf31ce0e599",
+      "title": "Implementar endpoint GET /furnas/bolhas→ BDR 045",
+      "description": "_**Consultar tabela/catálogo de parâmetros furnas no PostgreSQL e expor lista normalizada via API**_\n\nUS09 - API REST Backend Básica [3]\n\n> _Como desenvolvedor,_\n>\n> _Quero disponibilizar uma API REST inicial em Node.js/TypeScript,_\n>\n> _Para permitir consultas básicas ao banco PostgreSQL de forma padronizada na MVP._\n\n**Critérios de Aceite:**\n\n- Endpoints RESTful básicos documentados (ex.: /dados, /parâmetros)\n- Validação mínima de parâmetros de entrada\n- Tratamento inicial de erros (respostas HTTP claras)\n- Deploy funcional e acessível via container básico",
+      "column": "DONE SP1",
+      "storyPoints": 0,
+      "taskCode": "BDR 045",
+      "labels": [
+        "SP1",
+        "BDR"
+      ],
+      "assignedMembers": [
+        {
+          "name": "Leo",
+          "initials": "L",
+          "avatar": "https://trello-members.s3.amazonaws.com/68370531529c4469d0fa8e9c/4b44ebd6e8d6d8fbab17dcd233fde421"
+        }
+      ],
+      "dueDate": null,
+      "lastActivity": "2025-09-27T23:31:48.133Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355669"
+    },
+    {
+      "id": "68d734a0aed6a5897425cc63",
+      "title": "Implementar endpoint GET /balcar/reservatorio/all → BDR 050",
+      "description": "_**Consultar tabela/catálogo de parâmetros furnas no PostgreSQL e expor lista normalizada via API**_\n\nUS09 - API REST Backend Básica [3]\n\n> _Como desenvolvedor,_\n>\n> _Quero disponibilizar uma API REST inicial em Node.js/TypeScript,_\n>\n> _Para permitir consultas básicas ao banco PostgreSQL de forma padronizada na MVP._\n\n**Critérios de Aceite:**\n\n- Endpoints RESTful básicos documentados (ex.: /dados, /parâmetros)\n- Validação mínima de parâmetros de entrada\n- Tratamento inicial de erros (respostas HTTP claras)\n- Deploy funcional e acessível via container básico",
+      "column": "DONE SP1",
+      "storyPoints": 0,
+      "taskCode": "BDR 050",
+      "labels": [
+        "BDR",
+        "SP1"
+      ],
+      "assignedMembers": [
+        {
+          "name": "GABRIELLY NEU DOS SANTOS",
+          "initials": "GS",
+          "avatar": "https://trello-members.s3.amazonaws.com/67ca334a34d0ca9f26b2afd6/5d992095c7ed3857d2caca8c85567207"
+        }
+      ],
+      "dueDate": null,
+      "lastActivity": "2025-10-01T00:07:05.604Z",
+      "isCompleted": false,
+      "priority": "medium",
+      "createdAt": "2025-09-30T21:23:57.355672"
+    }
+  ],
+  "members": [
+    {
+      "name": "Alícia Silva Dias",
+      "initials": "AD",
+      "avatar": "https://trello-members.s3.amazonaws.com/67be6cd7dc6390ff20c73d7a/7a00de75c6151fd36b5a5a5864506faf"
+    },
+    {
+      "name": "Felipe Ferreira Pacheco",
+      "initials": "FP",
+      "avatar": "https://trello-members.s3.amazonaws.com/67d8a38ad7bf150214bd21df/2570ba131580dcc667fcfe189d6baccc"
+    },
+    {
+      "name": "GABRIELLY NEU DOS SANTOS",
+      "initials": "GS",
+      "avatar": "https://trello-members.s3.amazonaws.com/67ca334a34d0ca9f26b2afd6/5d992095c7ed3857d2caca8c85567207"
+    },
+    {
+      "name": "João Victor",
+      "initials": "JV",
+      "avatar": "https://trello-members.s3.amazonaws.com/67ca3262fbbe6b752eee6c35/c7bae35ca7ce5b365786020163433e6f"
+    },
+    {
+      "name": "Leo",
+      "initials": "L",
+      "avatar": "https://trello-members.s3.amazonaws.com/68370531529c4469d0fa8e9c/4b44ebd6e8d6d8fbab17dcd233fde421"
+    },
+    {
+      "name": "Manuela Lucia Lemes de Castro",
+      "initials": "MC",
+      "avatar": "https://trello-members.s3.amazonaws.com/67cf6da33dc4ab4dd5d4306b/3215e57aec712175d50c476ae54dba15"
+    },
+    {
+      "name": "Pedro Claudino Nunes",
+      "initials": "PN",
+      "avatar": "https://trello-members.s3.amazonaws.com/67e1e9463cd0a16925ce27d3/bbc25d254ce4d64137f9ed3398f179fe"
+    }
+  ],
+  "labels": [
+    {
+      "id": "label_0",
+      "name": "ED",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "label_1",
+      "name": "MC",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "label_2",
+      "name": "DW2",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "label_3",
+      "name": "SP1",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "label_4",
+      "name": "ES2",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "label_5",
+      "name": "TP",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "label_6",
+      "name": "BDR",
+      "color": "#3b82f6"
+    }
+  ]
+}

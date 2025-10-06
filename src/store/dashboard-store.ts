@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-export type DashboardPage = 'home' | 'burndown' | 'kanban' | 'analytics' | 'settings';
+export type DashboardPage = 'home' | 'burndown' | 'kanban' | 'sprint-management' | 'settings';
 
 interface DashboardState {
   currentPage: DashboardPage;

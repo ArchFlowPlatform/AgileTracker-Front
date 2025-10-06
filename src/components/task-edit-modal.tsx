@@ -3,14 +3,13 @@
 import { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 import { KanbanTask } from '@/types';
-import { useKanbanBoardStore } from '@/store/kanban-board-store';
+import { useUserKanbanBoardStore } from '@/hooks/useUserStores';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Label } from '@/components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
 
 interface TaskEditModalProps {
@@ -21,7 +20,7 @@ interface TaskEditModalProps {
 }
 
 export function TaskEditModal({ task, columnId, isOpen, onClose }: TaskEditModalProps) {
-  const { addTask, updateTask, labels, createLabel, getTeamMembers } = useKanbanBoardStore();
+  const kanbanStore = useUserKanbanBoardStore();
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -33,9 +32,6 @@ export function TaskEditModal({ task, columnId, isOpen, onClose }: TaskEditModal
   });
   const [newLabelName, setNewLabelName] = useState('');
   const [newLabelColor, setNewLabelColor] = useState('#3b82f6');
-
-  // Get members from settings
-  const members = getTeamMembers();
 
   useEffect(() => {
     if (task) {
@@ -60,6 +56,15 @@ export function TaskEditModal({ task, columnId, isOpen, onClose }: TaskEditModal
       });
     }
   }, [task, isOpen]);
+
+  if (!kanbanStore) {
+    return null;
+  }
+  
+  const { addTask, updateTask, labels, createLabel, getTeamMembers } = kanbanStore;
+  
+  // Get members from settings
+  const members = getTeamMembers();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -131,8 +136,12 @@ export function TaskEditModal({ task, columnId, isOpen, onClose }: TaskEditModal
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+    <div className="fixed inset-0 flex items-center justify-center z-50">
+      {/* Backdrop com desfoque */}
+      <div className="absolute inset-0 bg-white/80 backdrop-blur-md" />
+      
+      {/* Modal */}
+      <div className="relative bg-white rounded-lg border border-gray-200 w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl">
         <div className="flex items-center justify-between p-6 border-b border-gray-200">
           <h2 className="text-xl font-semibold text-gray-900">
             {task ? 'Editar Tarefa' : 'Nova Tarefa'}

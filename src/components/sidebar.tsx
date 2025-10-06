@@ -6,11 +6,13 @@ import {
   Home, 
   TrendingDown, 
   Kanban, 
-  BarChart3, 
-  Settings
+  Settings,
+  Calendar,
+  LogOut
 } from 'lucide-react';
 import { AgileTrackerLogo } from '@/components/agile-tracker-logo';
 import { cn } from '@/lib/utils';
+import { useAuth } from '@/hooks/useAuth';
 
 const navigationItems = [
   {
@@ -32,10 +34,10 @@ const navigationItems = [
     description: 'Board de tarefas'
   },
   {
-    id: 'analytics' as const,
-    label: 'Analytics',
-    icon: BarChart3,
-    description: 'Métricas e estatísticas'
+    id: 'sprint-management' as const,
+    label: 'Scrum Management',
+    icon: Calendar,
+    description: 'Gerenciar Scrum completo'
   },
   {
     id: 'settings' as const,
@@ -47,6 +49,13 @@ const navigationItems = [
 
 export function Sidebar() {
   const { currentPage, sidebarOpen, setCurrentPage, toggleSidebar } = useDashboardStore();
+  const { logout } = useAuth();
+
+  const handleLogout = () => {
+    if (confirm('Tem certeza que deseja fazer logout? Você será redirecionado para a página de login.')) {
+      logout();
+    }
+  };
 
   return (
     <div className={cn(
@@ -57,7 +66,6 @@ export function Sidebar() {
       <div className="flex items-center justify-center p-4">
         <AgileTrackerLogo 
           size={sidebarOpen ? "md" : "sm"} 
-          showText={sidebarOpen}
           onClick={toggleSidebar}
         />
       </div>
@@ -73,7 +81,7 @@ export function Sidebar() {
               <Button
                 variant={isActive ? "default" : "ghost"}
                 className={cn(
-                  "w-full justify-start h-auto p-3",
+                  "w-full justify-start h-auto p-3 cursor-pointer",
                   sidebarOpen ? "text-left" : "justify-center flex-col h-auto py-2"
                 )}
                 onClick={() => setCurrentPage(item.id)}
@@ -100,6 +108,33 @@ export function Sidebar() {
           );
         })}
       </nav>
+
+      {/* Logout Button */}
+      <div className="absolute bottom-4 left-4 right-4">
+        <Button
+          variant="ghost"
+          className={cn(
+            "w-full justify-start h-auto p-3 cursor-pointer text-red-600 hover:text-red-700 hover:bg-red-50",
+            sidebarOpen ? "text-left" : "justify-center flex-col h-auto py-2"
+          )}
+          onClick={handleLogout}
+        >
+          <LogOut className={cn("w-5 h-5", sidebarOpen ? "mr-3" : "")} />
+          {sidebarOpen && (
+            <div className="flex flex-col items-start">
+              <span className="font-medium">Logout</span>
+              <span className="text-xs text-red-500">
+                Sair da aplicação
+              </span>
+            </div>
+          )}
+        </Button>
+        {!sidebarOpen && (
+          <span className="text-xs text-red-500 mt-1 text-center leading-tight px-1 block w-full">
+            Logout
+          </span>
+        )}
+      </div>
     </div>
   );
 }

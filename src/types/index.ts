@@ -5,6 +5,7 @@ export interface Card {
   color: string;
   assignee?: string;
   status: 'todo' | 'inprogress' | 'done';
+  storyPoints?: number;
   createdAt: string;
   updatedAt?: string;
 }
@@ -20,6 +21,7 @@ export interface Task {
   priority: 'low' | 'medium' | 'high';
   completed: boolean;
   completedDate?: string;
+  userStoryId?: string; // Associação com User Story
   createdAt: string;
   updatedAt?: string;
 }
@@ -70,6 +72,7 @@ export interface KanbanTask {
   dueDate?: string;
   lastActivity?: string;
   isCompleted: boolean;
+  userStoryId?: string; // Associação com User Story
   createdAt: string;
   coverImage?: string;
   attachments: Attachment[];
@@ -128,10 +131,10 @@ export interface KanbanStore {
   sprintConfig: SprintConfig;
   
   // Card actions
-  addCard: (card: Omit<Card, 'id' | 'createdAt'>) => void;
-  updateCard: (id: string, updates: Partial<Card>) => void;
-  deleteCard: (id: string) => void;
-  moveCard: (id: string, status: Card['status']) => void;
+  addCard: (card: Omit<Card, 'id' | 'createdAt'>) => Promise<void>;
+  updateCard: (id: string, updates: Partial<Card>) => Promise<void>;
+  deleteCard: (id: string) => Promise<void>;
+  moveCard: (id: string, status: Card['status']) => Promise<void>;
   
   // Task actions
   addTask: (task: Omit<Task, 'id' | 'createdAt'>) => void;
@@ -140,8 +143,12 @@ export interface KanbanStore {
   toggleTaskCompletion: (id: string) => void;
   
   // Sprint config
-  updateSprintConfig: (config: Partial<SprintConfig>) => void;
+  updateSprintConfig: (config: SprintConfig) => void;
   
   // Burndown data
   getBurndownData: () => BurndownData;
+  
+  // Backend sync
+  loadDataFromBackend: (boardId: number) => Promise<void>;
+  clearData: () => void;
 }

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useDraggable } from '@dnd-kit/core';
 import { MessageCircle, Paperclip, Calendar, Clock, MoreVertical, Trash2, Edit } from 'lucide-react';
 import { KanbanTask } from '@/types';
-import { useKanbanBoardStore } from '@/store/kanban-board-store';
+import { useUserKanbanBoardStore } from '@/hooks/useUserStores';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -25,7 +25,7 @@ interface KanbanCardProps {
 }
 
 export function KanbanCard({ task, isOverlay }: KanbanCardProps) {
-  const { openTaskDialog, deleteTask } = useKanbanBoardStore();
+  const kanbanStore = useUserKanbanBoardStore();
   const [isHovered, setIsHovered] = useState(false);
   const [showActions, setShowActions] = useState(false);
   
@@ -38,6 +38,12 @@ export function KanbanCard({ task, isOverlay }: KanbanCardProps) {
   } = useDraggable({
     id: task.id,
   });
+
+  if (!kanbanStore) {
+    return null;
+  }
+  
+  const { openTaskDialog, deleteTask } = kanbanStore;
 
   const style = {
     transform: transform ? `translate3d(${transform.x}px, ${transform.y}px, 0)` : undefined,
@@ -75,9 +81,9 @@ export function KanbanCard({ task, isOverlay }: KanbanCardProps) {
       {...listeners}
       {...attributes}
       className={cn(
-        "bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer group relative",
-        isOverlay && "rotate-3 shadow-xl",
-        isHovered && "shadow-md",
+        "bg-white rounded-lg border border-gray-200 hover:border-gray-300 transition-all duration-200 cursor-pointer group relative",
+        isOverlay && "rotate-3 border-gray-300",
+        isHovered && "border-gray-300",
         isDragging && "opacity-50"
       )}
       onClick={() => openTaskDialog(task)}
@@ -98,7 +104,7 @@ export function KanbanCard({ task, isOverlay }: KanbanCardProps) {
               <Button
                 variant="ghost"
                 size="sm"
-                className="h-6 w-6 p-0 bg-white/80 hover:bg-white shadow-sm"
+                className="h-6 w-6 p-0 bg-white/80 hover:bg-white border border-gray-200"
                 onClick={(e) => e.stopPropagation()}
               >
                 <MoreVertical className="w-3 h-3" />

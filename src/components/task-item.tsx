@@ -3,7 +3,7 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
-import { useKanbanStore } from '@/store/kanban-store';
+import { useUserKanbanStore } from '@/hooks/useUserStores';
 import { TaskDialog } from './task-dialog';
 import { useState } from 'react';
 import { MoreHorizontal, Edit, Trash2, CheckCircle, Circle } from 'lucide-react';
@@ -14,7 +14,7 @@ interface TaskItemProps {
 }
 
 export function TaskItem({ task }: TaskItemProps) {
-  const { deleteTask, toggleTaskCompletion } = useKanbanStore();
+  const { deleteTask, toggleTaskCompletion } = useUserKanbanStore();
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
 
   const priorityColors = {

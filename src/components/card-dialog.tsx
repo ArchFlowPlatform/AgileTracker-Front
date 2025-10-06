@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { useKanbanStore } from '@/store/kanban-store';
+import { useUserKanbanStore } from '@/hooks/useUserStores';
 import { useState, useEffect } from 'react';
 import { Card as CardType } from '@/types';
 
@@ -26,7 +26,13 @@ const cardColors = [
 ];
 
 export function CardDialog({ open, onOpenChange, card }: CardDialogProps) {
-  const { addCard, updateCard } = useKanbanStore();
+  const kanbanStore = useUserKanbanStore();
+  
+  if (!kanbanStore) {
+    return null;
+  }
+  
+  const { addCard, updateCard } = kanbanStore;
   const [formData, setFormData] = useState({
     title: '',
     description: '',
