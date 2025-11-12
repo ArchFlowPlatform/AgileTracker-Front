@@ -362,7 +362,7 @@ export function BurndownChart() {
   // Calcular linha ideal baseada nos pontos totais divididos pelos dias da sprint
   const idealLine = data.labels.map((_, index) => {
     // Calcular pontos por dia baseado na sprint atual (não na velocity histórica)
-    const pointsPerDay = data.totalPontos / data.totalDias;
+    const pointsPerDay = data.totalPontos / (data.totalDias - 1); // -1 para garantir que termine em 0
     return Math.max(0, data.totalPontos - (index * pointsPerDay));
   });
 

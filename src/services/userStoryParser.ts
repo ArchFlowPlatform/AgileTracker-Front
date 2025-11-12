@@ -11,22 +11,22 @@ export interface ParsedUserStory {
 }
 
 export class UserStoryParser {
-  // Regex patterns para reconhecer diferentes partes
+  // Regex patterns para reconhecer diferentes partes (mais flexíveis)
   private static readonly PATTERNS = {
-    // US08 - Configuração de Ambiente Containerizado
-    title: /^(US\d+\s*-\s*.+)$/m,
+    // US01 - Painel Unificado de Parâmetros (RF01) ou US08 - Configuração...
+    title: /^(US\d+\s*-\s*.+?)(?:\s*\([^)]+\))?$/m,
     
-    // Prioridade: Alta | Story Points: 5
+    // Prioridade: Alta | Story Points: 8 (mais flexível)
     priorityAndPoints: /Prioridade:\s*(Alta|Média|Baixa|High|Medium|Low)\s*\|\s*Story Points:\s*(\d+)/i,
     
-    // Como desenvolvedor, Quero um ambiente..., Para garantir...
-    description: /Como\s+([^,]+),\s*Quero\s+(.+?),\s*Para\s+(.+?)(?=\n|$)/,
+    // Como usuário, Quero visualizar..., Para obter... (mais flexível)
+    description: /Como\s+([^,\n]+),?\s*Quero\s+(.+?),\s*Para\s+(.+?)(?=\n|$)/s,
     
-    // Critérios de Aceitação: - [ ] item
-    acceptanceCriteria: /Critérios de Aceitação:\s*([\s\S]*?)(?=\n\n|\n[A-Z]|$)/i,
+    // Critérios de Aceitação: (mais flexível)
+    acceptanceCriteria: /Critérios de Aceitação:\s*([\s\S]*?)(?=\n\n|\n[A-Z]|\nPrioridade:|$)/i,
     
-    // - [ ] Docker Compose com PostgreSQL...
-    criteriaItems: /-\s*\[\s*\]\s*(.+)/g,
+    // - [ ] item ou qualquer bullet point (detecção mais robusta)
+    criteriaItems: /(?:-\s*\[\s*\]\s*|[\u2022\u2023\u25E6\u2043\u2219\u00B7\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022]\s*)(.+)/g,
   };
 
   static parse(text: string): ParsedUserStory | null {
@@ -35,13 +35,16 @@ export class UserStoryParser {
       
       if (lines.length === 0) return null;
 
-      // Extrair título
-      const titleMatch = lines[0].match(this.PATTERNS.title);
+      // Extrair título (primeira linha que começa com US)
+      const titleLine = lines.find(line => line.match(/^US\d+/));
+      if (!titleLine) return null;
+      
+      const titleMatch = titleLine.match(this.PATTERNS.title);
       if (!titleMatch) return null;
       
       const title = titleMatch[1].trim();
 
-      // Extrair prioridade e story points
+      // Extrair prioridade e story points (pode estar em qualquer lugar do texto)
       const priorityPointsMatch = text.match(this.PATTERNS.priorityAndPoints);
       if (!priorityPointsMatch) return null;
 
@@ -52,7 +55,7 @@ export class UserStoryParser {
 
       const storyPoints = parseInt(priorityPointsMatch[2]);
 
-      // Extrair descrição
+      // Extrair descrição (mais flexível)
       const descriptionMatch = text.match(this.PATTERNS.description);
       if (!descriptionMatch) return null;
 
@@ -62,17 +65,37 @@ export class UserStoryParser {
 
       const description = `Como ${role},\nQuero ${want},\nPara ${soThat}`;
 
-      // Extrair critérios de aceitação
+      // Extrair critérios de aceitação (mais flexível)
       const criteriaMatch = text.match(this.PATTERNS.acceptanceCriteria);
       let acceptanceCriteria: string[] = [];
       
+      console.log('🔍 Debug - Texto completo:', JSON.stringify(text));
+      console.log('🔍 Debug - Critérios Match:', criteriaMatch);
+      
       if (criteriaMatch) {
         const criteriaText = criteriaMatch[1];
-        const items = [...criteriaText.matchAll(this.PATTERNS.criteriaItems)];
-        acceptanceCriteria = items.map(item => item[1].trim()).filter(item => item);
+        console.log('🔍 Debug - Texto dos critérios:', JSON.stringify(criteriaText));
+        
+        // Abordagem mais robusta: dividir por linhas e detectar qualquer bullet point
+        const lines = criteriaText.split('\n').map(line => line.trim()).filter(line => line);
+        console.log('🔍 Debug - Linhas encontradas:', lines.length);
+        
+        lines.forEach((line, index) => {
+          console.log(`🔍 Debug - Linha ${index + 1}:`, JSON.stringify(line));
+          // Detectar se a linha começa com qualquer caractere não-alfabético seguido de espaço
+          const match = line.match(/^[^\w\s]\s*(.+)$/);
+          if (match) {
+            console.log(`🔍 Debug - Item extraído da linha ${index + 1}:`, JSON.stringify(match[1].trim()));
+            acceptanceCriteria.push(match[1].trim());
+          }
+        });
+        
+        console.log('🔍 Debug - Critérios finais:', acceptanceCriteria);
+      } else {
+        console.log('❌ Debug - Nenhum critério encontrado!');
       }
 
-      // Extrair tags do título (tecnologias mencionadas)
+      // Extrair tags do título e descrição
       const tags = this.extractTags(title + ' ' + description);
 
       return {
@@ -112,10 +135,15 @@ export class UserStoryParser {
     return tags;
   }
 
-  // Valida se o texto parece ser uma User Story válida
+  // Valida se o texto parece ser uma User Story válida (mais flexível)
   static isValidFormat(text: string): boolean {
-    const hasTitle = this.PATTERNS.title.test(text);
+    // Verifica se tem pelo menos uma linha começando com US
+    const hasTitle = /^US\d+/m.test(text);
+    
+    // Verifica se tem prioridade e story points
     const hasPriorityPoints = this.PATTERNS.priorityAndPoints.test(text);
+    
+    // Verifica se tem descrição no formato "Como... Quero... Para..."
     const hasDescription = this.PATTERNS.description.test(text);
     
     return hasTitle && hasPriorityPoints && hasDescription;
