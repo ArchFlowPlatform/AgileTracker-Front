@@ -1,0 +1,163 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./agiletracker.db"
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  name      String?
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  // Relacionamentos
+  boards    Board[]
+  owned_tasks Task[] @relation("TaskOwner")
+
+  @@map("users")
+}
+
+model Board {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String?
+  owner_id    Int
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+
+  // Relacionamentos
+  owner       User         @relation(fields: [owner_id], references: [id], onDelete: Cascade)
+  columns     Column[]
+  tasks       Task[]
+  members     BoardMember[]
+  labels      Label[]
+  sprints     Sprint[]
+  user_stories UserStory[]
+  epics       Epic[]
+
+  @@map("boards")
+}
+
+model Column {
+  id          Int      @id @default(autoincrement())
+  name        String
+  position    Int
+  board_id    Int
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+
+  // Relacionamentos
+  board Board @relation(fields: [board_id], references: [id], onDelete: Cascade)
+  tasks Task[]
+
+  @@map("columns")
+}
+
+model Task {
+  id            Int      @id @default(autoincrement())
+  title         String
+  description   String?
+  position      Int
+  story_points  Int?
+  is_completed  Boolean  @default(false)
+  board_id      Int
+  column_id     Int
+  owner_id      Int?
+  created_at    DateTime @default(now())
+  updated_at    DateTime @updatedAt
+
+  // Relacionamentos
+  board  Board  @relation(fields: [board_id], references: [id], onDelete: Cascade)
+  column Column @relation(fields: [column_id], references: [id], onDelete: Cascade)
+  owner  User?  @relation("TaskOwner", fields: [owner_id], references: [id])
+
+  @@map("tasks")
+}
+
+model BoardMember {
+  id       Int @id @default(autoincrement())
+  board_id Int
+  user_id  Int
+  role     String @default("member")
+
+  // Relacionamentos
+  board Board @relation(fields: [board_id], references: [id], onDelete: Cascade)
+
+  @@unique([board_id, user_id])
+  @@map("board_members")
+}
+
+model Label {
+  id       Int    @id @default(autoincrement())
+  name     String
+  color    String
+  board_id Int
+  created_at DateTime @default(now())
+
+  // Relacionamentos
+  board Board @relation(fields: [board_id], references: [id], onDelete: Cascade)
+
+  @@map("labels")
+}
+
+model Sprint {
+  id           Int      @id @default(autoincrement())
+  name         String
+  description  String?
+  start_date   DateTime
+  end_date     DateTime
+  working_days String?   // JSON string com dias de trabalho
+  is_active    Boolean  @default(false)
+  board_id     Int
+  created_at   DateTime @default(now())
+  updated_at   DateTime @updatedAt
+
+  // Relacionamentos
+  board Board @relation(fields: [board_id], references: [id], onDelete: Cascade)
+
+  @@map("sprints")
+}
+
+model UserStory {
+  id                   Int      @id @default(autoincrement())
+  title                String
+  description          String?
+  story_points         Int      @default(0)
+  priority             String   @default("Medium") // High, Medium, Low
+  status               String   @default("Backlog") // Backlog, Sprint Planning, In Progress, Done
+  acceptance_criteria  String?  // JSON string com critérios de aceitação
+  tags                 String?  // JSON string com tags
+  epic_id              Int?
+  board_id             Int?     // Opcional - User Stories podem existir independentemente de boards
+  created_at           DateTime @default(now())
+  updated_at           DateTime @updatedAt
+
+  // Relacionamentos
+  board Board? @relation(fields: [board_id], references: [id], onDelete: Cascade)
+  epic  Epic? @relation(fields: [epic_id], references: [id])
+
+  @@map("user_stories")
+}
+
+model Epic {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String?
+  board_id    Int
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+
+  // Relacionamentos
+  board       Board       @relation(fields: [board_id], references: [id], onDelete: Cascade)
+  user_stories UserStory[]
+
+  @@map("epics")
+}

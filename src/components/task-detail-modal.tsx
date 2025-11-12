@@ -1,9 +1,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { X, ThumbsUp, Trash2, MoreVertical, Plus, Paperclip, Send } from 'lucide-react';
+import { X, ThumbsUp, Trash2, MoreVertical, Plus, Paperclip, Send, CheckCircle } from 'lucide-react';
 import { KanbanTask, Comment, Subtask } from '@/types';
-import { useKanbanBoardStore } from '@/store/kanban-board-store';
+import { useUserKanbanBoardStore } from '@/hooks/useUserStores';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -19,7 +19,7 @@ interface TaskDetailModalProps {
 }
 
 export function TaskDetailModal({ task, isOpen, onClose }: TaskDetailModalProps) {
-  const { updateTask } = useKanbanBoardStore();
+  const kanbanStore = useUserKanbanBoardStore();
   const [activeTab, setActiveTab] = useState('overview');
   const [newComment, setNewComment] = useState('');
   const [newSubtask, setNewSubtask] = useState('');
@@ -29,6 +29,12 @@ export function TaskDetailModal({ task, isOpen, onClose }: TaskDetailModalProps)
       setActiveTab('overview');
     }
   }, [isOpen]);
+
+  if (!kanbanStore) {
+    return null;
+  }
+  
+  const { updateTask } = kanbanStore;
 
   if (!task || !isOpen) return null;
 
@@ -112,73 +118,84 @@ export function TaskDetailModal({ task, isOpen, onClose }: TaskDetailModalProps)
   const progressPercentage = totalSubtasks > 0 ? (completedSubtasks / totalSubtasks) * 100 : 0;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg shadow-xl w-full max-w-4xl h-[90vh] flex flex-col">
-        {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b border-gray-200">
+    <div className="fixed inset-0 flex items-center justify-center z-50">
+      {/* Backdrop simples */}
+      <div className="absolute inset-0 bg-black/10 backdrop-blur-sm" />
+      
+      {/* Modal clean */}
+      <div className="relative bg-white rounded-2xl border border-gray-200 w-full max-w-4xl h-[90vh] flex flex-col shadow-xl">
+        {/* Header simples */}
+        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 bg-gray-50/50">
           <div className="flex items-center space-x-4">
-            <Button variant="outline" size="sm">
-              Done
+            <Button className="bg-green-600 hover:bg-green-700 text-white">
+              <CheckCircle className="w-4 h-4 mr-2" />
+              Concluído
             </Button>
             <div className="flex items-center space-x-2">
-              <Button variant="ghost" size="sm">
-                <ThumbsUp className="w-4 h-4 text-green-500" />
+              <Button variant="outline" size="sm" className="border-gray-300 text-gray-600 hover:bg-gray-50">
+                <ThumbsUp className="w-4 h-4" />
               </Button>
-              <Button variant="ghost" size="sm">
-                <Trash2 className="w-4 h-4 text-gray-500" />
+              <Button variant="outline" size="sm" className="border-gray-300 text-gray-600 hover:bg-gray-50">
+                <Trash2 className="w-4 h-4" />
               </Button>
-              <Button variant="ghost" size="sm">
-                <MoreVertical className="w-4 h-4 text-gray-500" />
+              <Button variant="outline" size="sm" className="border-gray-300 text-gray-600 hover:bg-gray-50">
+                <MoreVertical className="w-4 h-4" />
               </Button>
             </div>
           </div>
-          <Button variant="ghost" size="sm" onClick={onClose}>
+          <Button variant="ghost" size="sm" onClick={onClose} className="hover:bg-gray-100 rounded-full p-2">
             <X className="w-4 h-4" />
           </Button>
         </div>
 
-        {/* Tabs */}
+        {/* Tabs simples */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="flex-1 flex flex-col">
-          <TabsList className="grid w-full grid-cols-3">
-            <TabsTrigger value="overview">Overview</TabsTrigger>
-            <TabsTrigger value="subtasks">Subtasks</TabsTrigger>
-            <TabsTrigger value="comments">Comments ({task.comments.length})</TabsTrigger>
+          <TabsList className="grid w-full grid-cols-3 bg-gray-100 rounded-none h-12">
+            <TabsTrigger 
+              value="overview" 
+              className="data-[state=active]:bg-blue-500 data-[state=active]:text-white bg-white text-gray-600 font-medium rounded-none h-full flex items-center justify-center"
+            >
+              Visão Geral
+            </TabsTrigger>
+            <TabsTrigger 
+              value="subtasks" 
+              className="data-[state=active]:bg-blue-500 data-[state=active]:text-white bg-white text-gray-600 font-medium rounded-none h-full flex items-center justify-center"
+            >
+              Subtarefas
+            </TabsTrigger>
+            <TabsTrigger 
+              value="comments" 
+              className="data-[state=active]:bg-blue-500 data-[state=active]:text-white bg-white text-gray-600 font-medium rounded-none h-full flex items-center justify-center"
+            >
+              Comentários ({task.comments.length})
+            </TabsTrigger>
           </TabsList>
 
           {/* Overview Tab */}
-          <TabsContent value="overview" className="flex-1 p-6 overflow-y-auto">
+          <TabsContent value="overview" className="flex-1 px-6 py-4 overflow-y-auto min-h-0">
             <div className="space-y-6">
               <h1 className="text-2xl font-bold text-gray-900">{task.title}</h1>
               
               {/* Task Details */}
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <div className="space-y-4">
                   <div>
-                    <label className="text-sm font-medium text-gray-500">Reporter</label>
+                    <label className="text-sm font-medium text-gray-500">Responsável</label>
                     <div className="flex items-center space-x-2 mt-1">
-                      <Avatar className="w-8 h-8">
-                        <AvatarImage src="/placeholder-avatar.jpg" alt="Reporter" />
-                        <AvatarFallback>JD</AvatarFallback>
-                      </Avatar>
-                      <span className="text-sm">John Doe</span>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="text-sm font-medium text-gray-500">Assignee</label>
-                    <div className="flex items-center space-x-2 mt-1">
-                      {task.assignedMembers.slice(0, 5).map((member, index) => (
-                        <Avatar key={index} className="w-8 h-8">
-                          <AvatarImage src={member.avatar} alt={member.name} />
-                          <AvatarFallback className="text-xs">
-                            {member.initials}
-                          </AvatarFallback>
-                        </Avatar>
-                      ))}
-                      {task.assignedMembers.length > 5 && (
-                        <Button variant="ghost" size="sm" className="w-8 h-8 rounded-full">
-                          <Plus className="w-4 h-4" />
-                        </Button>
+                      {task.assignedMembers.length > 0 ? (
+                        task.assignedMembers.slice(0, 3).map((member, index) => (
+                          <div key={index} className="flex items-center space-x-2">
+                            <Avatar className="w-8 h-8">
+                              <AvatarImage src={member.avatar} alt={member.name} />
+                              <AvatarFallback className="bg-blue-500 text-white text-xs">
+                                {member.initials}
+                              </AvatarFallback>
+                            </Avatar>
+                            <span className="text-sm font-medium text-gray-700">{member.name}</span>
+                          </div>
+                        ))
+                      ) : (
+                        <span className="text-sm text-gray-500">Nenhum responsável</span>
                       )}
                     </div>
                   </div>
@@ -186,62 +203,51 @@ export function TaskDetailModal({ task, isOpen, onClose }: TaskDetailModalProps)
                   <div>
                     <label className="text-sm font-medium text-gray-500">Labels</label>
                     <div className="flex flex-wrap gap-2 mt-1">
-                      {task.labels.map((label, index) => (
-                        <Badge key={index} variant="secondary" className="text-xs">
-                          {label}
-                        </Badge>
-                      ))}
+                      {task.labels.length > 0 ? (
+                        task.labels.map((label, index) => (
+                          <Badge key={index} variant="secondary" className="bg-blue-100 text-blue-800">
+                            {label}
+                          </Badge>
+                        ))
+                      ) : (
+                        <span className="text-sm text-gray-500">Nenhum label</span>
+                      )}
                     </div>
                   </div>
                 </div>
 
                 <div className="space-y-4">
                   <div>
-                    <label className="text-sm font-medium text-gray-500">Due date</label>
-                    <p className="text-sm mt-1">{task.dueDate ? formatDate(task.dueDate) : 'No due date'}</p>
+                    <label className="text-sm font-medium text-gray-500">Data de Vencimento</label>
+                    <p className="text-sm mt-1 font-medium text-gray-700">
+                      {task.dueDate ? formatDate(task.dueDate) : 'Sem data de vencimento'}
+                    </p>
                   </div>
 
                   <div>
-                    <label className="text-sm font-medium text-gray-500">Priority</label>
-                    <div className="flex space-x-2 mt-1">
-                      <Button 
-                        variant={task.priority === 'low' ? 'default' : 'outline'} 
-                        size="sm"
-                        className="text-xs"
-                      >
-                        Low
-                      </Button>
-                      <Button 
-                        variant={task.priority === 'medium' ? 'default' : 'outline'} 
-                        size="sm"
-                        className="text-xs"
-                      >
-                        Medium
-                      </Button>
-                      <Button 
-                        variant={task.priority === 'high' ? 'default' : 'outline'} 
-                        size="sm"
-                        className="text-xs"
-                      >
-                        High
-                      </Button>
+                    <label className="text-sm font-medium text-gray-500">Story Points</label>
+                    <div className="flex items-center space-x-2 mt-1">
+                      <Badge variant="outline" className="bg-yellow-50 text-yellow-700 border-yellow-200">
+                        {task.storyPoints} pts
+                      </Badge>
                     </div>
                   </div>
 
                   <div>
-                    <label className="text-sm font-medium text-gray-500">Description</label>
+                    <label className="text-sm font-medium text-gray-500">Descrição</label>
                     <Textarea 
                       value={task.description || ''} 
-                      className="mt-1 min-h-[100px]"
-                      placeholder="Add a description..."
+                      className="mt-1 h-32 resize-none border-gray-200 bg-gray-50/50"
+                      placeholder="Adicionar descrição..."
+                      readOnly
                     />
                   </div>
 
                   <div>
-                    <label className="text-sm font-medium text-gray-500">Attachments</label>
-                    <Button variant="outline" size="sm" className="mt-1">
+                    <label className="text-sm font-medium text-gray-500">Anexos</label>
+                    <Button variant="outline" size="sm" className="mt-1 border-blue-200 text-blue-600 hover:bg-blue-50">
                       <Paperclip className="w-4 h-4 mr-2" />
-                      Upload files
+                      Enviar arquivos
                     </Button>
                   </div>
                 </div>
@@ -250,7 +256,7 @@ export function TaskDetailModal({ task, isOpen, onClose }: TaskDetailModalProps)
           </TabsContent>
 
           {/* Subtasks Tab */}
-          <TabsContent value="subtasks" className="flex-1 p-6 overflow-y-auto">
+          <TabsContent value="subtasks" className="flex-1 px-6 py-4 overflow-y-auto min-h-0">
             <div className="space-y-6">
               <h1 className="text-2xl font-bold text-gray-900">{task.title}</h1>
               
@@ -304,7 +310,7 @@ export function TaskDetailModal({ task, isOpen, onClose }: TaskDetailModalProps)
           </TabsContent>
 
           {/* Comments Tab */}
-          <TabsContent value="comments" className="flex-1 p-6 overflow-y-auto">
+          <TabsContent value="comments" className="flex-1 px-6 py-4 overflow-y-auto min-h-0">
             <div className="space-y-6">
               <h1 className="text-2xl font-bold text-gray-900">{task.title}</h1>
               

@@ -5,14 +5,12 @@ import { cn } from '@/lib/utils';
 
 interface AgileTrackerLogoProps {
   className?: string;
-  showText?: boolean;
   size?: 'sm' | 'md' | 'lg';
   onClick?: () => void;
 }
 
 export function AgileTrackerLogo({ 
   className, 
-  showText = true, 
   size = 'md',
   onClick
 }: AgileTrackerLogoProps) {
@@ -22,16 +20,11 @@ export function AgileTrackerLogo({
     lg: 'w-28 h-28'
   };
 
-  const textSizeClasses = {
-    sm: 'text-lg',
-    md: 'text-xl',
-    lg: 'text-2xl'
-  };
-
   return (
     <div 
       className={cn(
-        "flex flex-col items-center cursor-pointer hover:opacity-80 transition-all duration-200 p-2 rounded-lg hover:bg-accent/50", 
+        "flex flex-col items-center",
+        onClick && "cursor-pointer hover:opacity-80 transition-opacity duration-200",
         className
       )}
       onClick={onClick}
@@ -46,16 +39,9 @@ export function AgileTrackerLogo({
           width={size === 'sm' ? 80 : size === 'md' ? 96 : 112}
           height={size === 'sm' ? 80 : size === 'md' ? 96 : 112}
           className="w-full h-full object-contain"
+          priority
         />
       </div>
-      {showText && (
-        <span className={cn(
-          "text-muted-foreground leading-tight mt-2 text-center",
-          size === 'sm' ? 'text-sm' : size === 'md' ? 'text-base' : 'text-lg'
-        )}>
-          Proof of Concept
-        </span>
-      )}
     </div>
   );
 }

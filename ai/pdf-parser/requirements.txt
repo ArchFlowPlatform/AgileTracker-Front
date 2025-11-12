@@ -1,0 +1,15 @@
+# AI PDF Parser Requirements
+# Instalar com: pip install -r requirements.txt
+
+# PDF Processing
+PyPDF2==3.0.1
+
+# AI/ML
+ollama==0.1.7
+
+# Data Processing
+dataclasses-json==0.6.3
+
+# Utilities
+pathlib2==2.3.7
+typing-extensions==4.8.0

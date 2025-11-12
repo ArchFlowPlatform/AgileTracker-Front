@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import { useDroppable } from '@dnd-kit/core';
-import { KanbanColumn, KanbanTask } from '@/types';
-import { useKanbanBoardStore } from '@/store/kanban-board-store';
+import { type KanbanColumn, type KanbanTask } from '@/types';
+import { useUserKanbanBoardStore } from '@/hooks/useUserStores';
 import { KanbanCard } from './kanban-card';
 import { TaskEditModal } from './task-edit-modal';
 import { Button } from '@/components/ui/button';
@@ -24,7 +24,7 @@ interface KanbanColumnProps {
 }
 
 export function KanbanColumn({ column, tasks, isOver }: KanbanColumnProps) {
-  const { deleteColumn, updateColumn, clearColumn } = useKanbanBoardStore();
+  const kanbanStore = useUserKanbanBoardStore();
   const [isTaskModalOpen, setIsTaskModalOpen] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [newName, setNewName] = useState(column.name);
@@ -32,6 +32,12 @@ export function KanbanColumn({ column, tasks, isOver }: KanbanColumnProps) {
   const { setNodeRef } = useDroppable({
     id: column.id,
   });
+  
+  if (!kanbanStore) {
+    return null;
+  }
+  
+  const { deleteColumn, updateColumn, clearColumn } = kanbanStore;
 
   const handleAddTask = () => {
     setIsTaskModalOpen(true);
@@ -79,8 +85,8 @@ export function KanbanColumn({ column, tasks, isOver }: KanbanColumnProps) {
       <div
         ref={setNodeRef}
         className={cn(
-          "bg-gray-50 rounded-lg p-4 min-h-[200px] border border-gray-200",
-          isOver && "bg-gray-100"
+          "bg-white/80 backdrop-blur-sm rounded-xl p-4 min-h-[200px] border border-gray-200/50 shadow-sm hover:shadow-md transition-all duration-300",
+          isOver && "bg-blue-50/80 border-blue-300/50 shadow-lg"
         )}
       >
         {/* Column Header */}
@@ -108,7 +114,7 @@ export function KanbanColumn({ column, tasks, isOver }: KanbanColumnProps) {
                 {column.name}
               </h3>
             )}
-            <span className="text-sm text-gray-500 bg-gray-200 px-2 py-1 rounded-full">
+            <span className="text-sm font-medium text-white px-3 py-1 rounded-full shadow-sm" style={{ backgroundColor: column.color }}>
               {tasks.length}
             </span>
           </div>
@@ -149,11 +155,16 @@ export function KanbanColumn({ column, tasks, isOver }: KanbanColumnProps) {
           </div>
         </div>
 
-        {/* Tasks */}
-        <div className="space-y-3">
-          {tasks.map((task) => (
-            <KanbanCard key={task.id} task={task} />
-          ))}
+        {/* Tasks Container with Scroll */}
+        <div className="relative">
+          {/* Scrollable Tasks Area */}
+          <div 
+            className="space-y-3 max-h-[calc(4*120px)] overflow-y-auto pr-2 kanban-scroll"
+          >
+            {tasks.map((task) => (
+              <KanbanCard key={task.id} task={task} />
+            ))}
+          </div>
         </div>
       </div>
 

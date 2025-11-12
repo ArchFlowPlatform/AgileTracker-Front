@@ -149,7 +149,7 @@ def main():
     
     filename = sys.argv[1]
     
-    print("🚀 Gerando JSON para kanban board...")
+    print("Gerando JSON para kanban board...")
     
     kanban_data = extract_tasks_for_kanban(filename)
     
@@ -158,13 +158,13 @@ def main():
     with open(output_file, 'w', encoding='utf-8') as file:
         json.dump(kanban_data, file, indent=2, ensure_ascii=False, default=str)
     
-    print(f"✅ JSON gerado: {output_file}")
-    print(f"📊 Colunas: {len(kanban_data['columns'])}")
-    print(f"🎯 Tasks: {len(kanban_data['tasks'])}")
-    print(f"👥 Membros: {len(kanban_data['members'])}")
-    print(f"🏷️ Labels: {len(kanban_data['labels'])}")
+    print(f"JSON gerado: {output_file}")
+    print(f"Colunas: {len(kanban_data['columns'])}")
+    print(f"Tasks: {len(kanban_data['tasks'])}")
+    print(f"Membros: {len(kanban_data['members'])}")
+    print(f"Labels: {len(kanban_data['labels'])}")
     
-    print("\n📋 COLUNAS ENCONTRADAS:")
+    print("\nCOLUNAS ENCONTRADAS:")
     for column in kanban_data['columns']:
         task_count = len([task for task in kanban_data['tasks'] if task['column'] == column['name']])
         print(f"   - {column['name']}: {task_count} tasks")

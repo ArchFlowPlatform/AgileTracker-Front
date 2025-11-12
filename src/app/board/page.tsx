@@ -2,7 +2,7 @@
 
 import { DndContext, DragEndEvent, DragOverlay, DragStartEvent } from '@dnd-kit/core';
 import { SortableContext, horizontalListSortingStrategy } from '@dnd-kit/sortable';
-import { useKanbanBoardStore } from '@/store/kanban-board-store';
+import { useUserKanbanBoardStore } from '@/hooks/useUserKanbanBoardStore';
 import { KanbanColumn } from '@/components/kanban-column';
 import { KanbanCard } from '@/components/kanban-card';
 import { TaskDialog } from '@/components/task-dialog';
@@ -13,6 +13,19 @@ import { useState } from 'react';
 import { KanbanTask } from '@/types';
 
 export default function KanbanBoardPage() {
+  const kanbanStore = useUserKanbanBoardStore();
+  
+  if (!kanbanStore) {
+    return (
+      <div className="flex items-center justify-center h-64">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Carregando board...</p>
+        </div>
+      </div>
+    );
+  }
+
   const {
     board,
     columns,
@@ -24,7 +37,7 @@ export default function KanbanBoardPage() {
     openImportDialog,
     isTaskDialogOpen,
     closeTaskDialog,
-  } = useKanbanBoardStore();
+  } = kanbanStore;
 
   const [activeTask, setActiveTask] = useState<KanbanTask | null>(null);
 

@@ -6,10 +6,9 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
-import { useKanbanBoardStore } from '@/store/kanban-board-store';
+import { useUserKanbanBoardStore } from '@/hooks/useUserStores';
 
 interface TaskDialogProps {
   open: boolean;
@@ -17,37 +16,28 @@ interface TaskDialogProps {
 }
 
 export function TaskDialog({ open, onOpenChange }: TaskDialogProps) {
-  const {
-    selectedTask,
-    members,
-    labels,
-    updateTask,
-    addTask,
-    closeTaskDialog,
-  } = useKanbanBoardStore();
-
+  const kanbanStore = useUserKanbanBoardStore();
+  
   const [formData, setFormData] = useState({
     title: '',
     description: '',
     storyPoints: 0,
     taskCode: '',
-    priority: 'medium' as 'low' | 'medium' | 'high',
     dueDate: '',
     assignedMembers: [] as string[],
     selectedLabels: [] as string[],
   });
 
   useEffect(() => {
-    if (selectedTask) {
+    if (kanbanStore?.selectedTask) {
       setFormData({
-        title: selectedTask.title,
-        description: selectedTask.description || '',
-        storyPoints: selectedTask.storyPoints,
-        taskCode: selectedTask.taskCode,
-        priority: selectedTask.priority,
-        dueDate: selectedTask.dueDate ? selectedTask.dueDate.split('T')[0] : '',
-        assignedMembers: selectedTask.assignedMembers.map(m => m.name),
-        selectedLabels: selectedTask.labels,
+        title: kanbanStore.selectedTask.title,
+        description: kanbanStore.selectedTask.description || '',
+        storyPoints: kanbanStore.selectedTask.storyPoints,
+        taskCode: kanbanStore.selectedTask.taskCode,
+        dueDate: kanbanStore.selectedTask.dueDate ? kanbanStore.selectedTask.dueDate.split('T')[0] : '',
+        assignedMembers: kanbanStore.selectedTask.assignedMembers.map(m => m.name),
+        selectedLabels: kanbanStore.selectedTask.labels,
       });
     } else {
       setFormData({
@@ -55,13 +45,25 @@ export function TaskDialog({ open, onOpenChange }: TaskDialogProps) {
         description: '',
         storyPoints: 0,
         taskCode: '',
-        priority: 'medium',
         dueDate: '',
         assignedMembers: [],
         selectedLabels: [],
       });
     }
-  }, [selectedTask]);
+  }, [kanbanStore?.selectedTask]);
+
+  if (!kanbanStore) {
+    return null;
+  }
+  
+  const {
+    selectedTask,
+    members,
+    labels,
+    updateTask,
+    addTask,
+    closeTaskDialog,
+  } = kanbanStore;
 
   const handleSave = () => {
     const assignedMembersData = members.filter(m => 
@@ -73,7 +75,6 @@ export function TaskDialog({ open, onOpenChange }: TaskDialogProps) {
       description: formData.description,
       storyPoints: formData.storyPoints,
       taskCode: formData.taskCode,
-      priority: formData.priority,
       dueDate: formData.dueDate || undefined,
       assignedMembers: assignedMembersData,
       labels: formData.selectedLabels,
@@ -86,6 +87,9 @@ export function TaskDialog({ open, onOpenChange }: TaskDialogProps) {
         ...taskData,
         column: 'TO DO', // Default column
         isCompleted: false,
+        attachments: [],
+        comments: [],
+        subtasks: [],
       });
     }
 
@@ -168,26 +172,7 @@ export function TaskDialog({ open, onOpenChange }: TaskDialogProps) {
           </div>
 
           {/* Prioridade e Data de Vencimento */}
-          <div className="grid grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <Label htmlFor="priority">Prioridade</Label>
-              <Select
-                value={formData.priority}
-                onValueChange={(value: 'low' | 'medium' | 'high') => 
-                  setFormData(prev => ({ ...prev, priority: value }))
-                }
-              >
-                <SelectTrigger>
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="low">Baixa</SelectItem>
-                  <SelectItem value="medium">Média</SelectItem>
-                  <SelectItem value="high">Alta</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-            <div className="space-y-2">
+          <div className="space-y-2">
               <Label htmlFor="dueDate">Data de Vencimento</Label>
               <Input
                 id="dueDate"
@@ -249,8 +234,7 @@ export function TaskDialog({ open, onOpenChange }: TaskDialogProps) {
               {selectedTask ? 'Salvar' : 'Criar Task'}
             </Button>
           </div>
-        </div>
-      </DialogContent>
-    </Dialog>
-  );
+        </DialogContent>
+      </Dialog>
+    );
 }
